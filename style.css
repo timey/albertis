@@ -1,0 +1,114 @@
+/*
+Theme Name: Tim
+Description: Template für die Webseite Albertis.de
+Author: Tim Hartl
+*/
+
+@import url("css/foundation.css");
+
+html{
+	
+}
+
+body{
+	background: url("img/bg.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-ms-background-size: cover;
+	-o-background-size: cover;
+}
+
+footer ul {
+	list-style:none;
+	margin-left: 0;
+}
+
+.bg {
+	background: rgba(244,244,244,0.9);
+	padding: 2rem;
+	margin-top: 4em;
+}
+
+.logo {
+	background: rgba(244,244,244,0.9);
+	padding: 1.5em 1.5em 1.5em 1.5em;
+}
+.topnav{
+	padding-right: 0;
+}
+
+.menu {
+	list-style-type: none;
+	display: inline-block;
+}
+.menu li {
+	float: left;
+	border-right: 1px solid;
+	border-color: rgba(255, 255, 255, 0.5)
+	}
+
+.menu li:last-child{
+	border-right: none;
+}	
+
+.menu li a {
+	text-align: center;
+	background-color: rgba(244,244,244,0.9);
+	font-size: 1rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	color: black !important;
+	margin: 9 9 1.25rem;
+	line-height: normal;
+	display: inline-block;
+
+	-webkit-transition: background-color 300ms ease-out;
+	-moz-transition: background-color 300ms ease-out;
+	transition: background-color 300ms ease-out;
+}
+
+.menu li a:hover {
+	background-color: #5cb44e; 
+}
+
+
+.imagefeed {
+	margin-bottom: 1.5em;
+}
+
+/************ SINGLE.PHP - KUNSTWERK ***********/
+
+.image-container {
+	margin: 2em 0 !important;
+}
+
+.image-container img{
+	display: block;
+	margin: 0 auto;
+}
+
+div.imagedata-container p {
+	margin-bottom: 0;
+}
+
+
+@media only screen and (min-width: 64.063em) {
+
+
+.first-container{
+	//margin-top: 2em !important;
+}
+
+.second-container{
+	margin-top: 7em !important;
+	margin-bottom: 3em !important;
+}
+
+.third-container{
+	margin-bottom: 5em !important;
+}
+
+
+

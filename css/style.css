@@ -1,0 +1,22 @@
+html{
+	background: url("/img/bg.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-ms-background-size: cover;
+	-o-background-size: cover;
+}
+
+
+@media only screen and (min-width: 64.063em) {
+
+
+.first-container{
+	margin-top: 10em;
+}
+
+.second-container{
+	margin-top: 5em;
+	margin-bottom: 5em;
+}
+
+}
