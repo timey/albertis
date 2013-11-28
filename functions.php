@@ -12,8 +12,9 @@ function create_post_type() {
 		'public'=> true,
 		'has_archive'=>true,
 		'rewrite'=>array('slug' => 'kunstwerke'),
-		'supports' => array('thumbnail')
-		
+		'taxonomies' => array('category'), 
+		'supports' => array('title','categorys','thumbnail')
+	
 		)
 	);
 }

@@ -13,7 +13,7 @@
 
           <?php 
       // the query
-      $the_query = new WP_Query( array ( 'post_type' => 'albertis-kunstwerke', 'posts_per_page' => '21' ) ); ?>
+      $the_query = new WP_Query( array ( 'post_type' => 'page', 'posts_per_page' => '21' ) ); ?>
 
       <?php if ( $the_query->have_posts() ) : ?>
 

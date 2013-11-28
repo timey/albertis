@@ -2,7 +2,6 @@
 
 <?php get_header(); ?>
  
-<!-- First Band (Slider) -->
 <div class="row">
  <div class="bg large-12 columns">
 

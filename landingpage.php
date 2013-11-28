@@ -2,9 +2,10 @@
 
 <?php get_header(); ?>
  
-<!-- First Band (Slider) -->
 <div class="row">
  <div class="bg large-12 columns">
+
+<!-- Über Uns Bereich -->
 
   <div class="row first-container">
     <div class="large-12 columns">
@@ -23,6 +24,8 @@
       </div>
     </div>
   </div>
+
+<!-- Was wir bieten Trenner -->
   
 <div class="row second-container">
     <div class="large-3 large-centered  columns">
@@ -31,7 +34,7 @@
 </div>
 
 
-<!-- Three-up Content Blocks -->
+<!-- Angebots Bereich -->
  
   <div class="row third-container">
     <div class="large-4 columns">
@@ -43,13 +46,11 @@
     </div>
     
     <div class="large-4 columns">
-     <!-- <img src="http://placehold.it/400x300&text=[img]" /> -->
       <h4>Restaurierung</h4>
       <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
     </div>
     
     <div class="large-4 columns">
-    <!--  <img src="http://placehold.it/400x300&text=[img]" /> -->
       <h4>Begutachtung</h4>
       <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
     </div>

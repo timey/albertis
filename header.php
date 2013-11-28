@@ -20,14 +20,6 @@
     </div>
     <div class="large-9 medium-9 columns topnav">
 
-<!--      <ul class="right button-group">
-      <li><a href="#" class="button">Kunstwerke</a></li>
-      <li><a href="#" class="button">Bewertung</a></li>
-      <li><a href="#" class="button">Restauration</a></li>
-      <li><a href="#" class="button">Über Uns</a></li>
-      </ul> -->
-
-
       <?php wp_nav_menu(array('container_class' => 'right button-group','theme_location'=>'header-menu')); ?>
       
 
