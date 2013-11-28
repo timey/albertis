@@ -6,11 +6,6 @@
 	<input type="text" value="<?php echo wp_specialchars($s, 1); ?>" name="s" id="s" />
 	<input type="submit" id="search_submit" value="Suchen" />
 
-<h2>Statische &Uuml;berschrift</h2>
-<p class="mini_about">
-	Hallo das ist ein statischer Text!
-</p>
-
 <h2>Kategorien</h2>
 <ul>
 	<?php wp_list_categories('orderby=name&order=ASC&title_li='); ?>
