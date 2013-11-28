@@ -12,11 +12,55 @@ function create_post_type() {
 		'public'=> true,
 		'has_archive'=>true,
 		'rewrite'=>array('slug' => 'kunstwerke'),
-		'taxonomies' => array('category'), 
-		'supports' => array('title','categorys','thumbnail')
+	/*	'taxonomies' => array('category'), */
+		'supports' => array(/*'title','categorys',*/'thumbnail')
 	
 		)
 	);
+}
+
+//Get Post Title from custom field "bildname"
+add_filter('the_title', 'post_title_equals_bildname', 10, 2);
+function post_title_equals_bildname($title, $post_id)
+	{
+		if($new_title=get_post_meta($post_id, 'bildname', true)) {
+			return $new_title;
+		}
+		return $title;
+	}
+
+//Create Custom Taxonomy "Kunstart" for Custom Post Type "Kunstwerke"
+// hook into the init action and call create_book_taxonomies when it fires
+add_action( 'init', 'create_kunstwerke_taxonomies', 0 );
+
+// create taxonomy of "Kunstart" for the post type "Kunstwerk"
+function create_kunstwerke_taxonomies() {
+	// Add new taxonomy, make it hierarchical (like categories)
+	$labels = array(
+		'name'              => _x( 'Kunstarten', 'taxonomy general name' ),
+		'singular_name'     => _x( 'Kunstart', 'taxonomy singular name' ),
+	//	'search_items'      => __( '' ),
+		'all_items'         => __( 'Alle Kunstarten' ),
+		'parent_item'       => __( 'Übergeordnete Kunstart' ),
+		'parent_item_colon' => __( 'Übergeordnete Kunstart:' ),
+		'edit_item'         => __( 'Kunstart bearbeiten' ),
+		'update_item'       => __( 'Kunstart aktualisieren' ),
+		'add_new_item'      => __( 'Kunstart hinzufügen' ),
+		'new_item_name'     => __( 'Name der Kunstart' ),
+		'menu_name'         => __( 'Kunstart' ),
+		'popular_items'      => null,
+	);
+
+	$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => 'kunstarten',
+		'rewrite'           => array( 'slug' => 'kunstart' ),
+	);
+
+	register_taxonomy( 'kunstart', 'albertis-kunstwerke' , $args );
 }
 
 ////////////////////////////////////////////////////
