@@ -90,8 +90,8 @@ register_sidebar( array(
 	'description' => __( 'The first footer widget area', 'asdu32' ),
 	'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 	'after_widget' => '</li>',
-	'before_title' => '<h3 class="widget-title">',
-	'after_title' => '</h3>',
+	'before_title' => '<h5 class="widget-title">',
+	'after_title' => '</h5>',
 ) );
 
 //ADD FOOTER WIDGET	2
@@ -101,19 +101,19 @@ register_sidebar( array(
 	'description' => __( 'The second footer widget area', 'asdu32' ),
 	'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 	'after_widget' => '</li>',
-	'before_title' => '<h3 class="widget-title">',
-	'after_title' => '</h3>',
+	'before_title' => '<h5 class="widget-title">',
+	'after_title' => '</h5>',
 ) );
 
 //ADD FOOTER WIDGET	3
 register_sidebar( array(
 	'name' => __( 'Third Footer Widget Area', 'albertis' ),
 	'id' => 'third-footer-widget-area',
-	'description' => __( 'The third footer widget area', 'asdu32' ),
+	'description' => __( 'The third footer widget area', 'albertis' ),
 	'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 	'after_widget' => '</li>',
-	'before_title' => '<h3 class="widget-title">',
-	'after_title' => '</h3>',
+	'before_title' => '<h5 class="widget-title">',
+	'after_title' => '</h5>',
 ) );
 
 // ADDING THEME SUPPORT FOR THUMBNAILS / FEATURED IMAGES
