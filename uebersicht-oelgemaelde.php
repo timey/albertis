@@ -1,4 +1,4 @@
-<?php /*Template Name: Übersichtsseite */ ?>
+<?php /*Template Name: Übersicht-Ölgemälde */ ?>
 
 <?php get_header(); ?>
  
