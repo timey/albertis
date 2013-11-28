@@ -39,20 +39,26 @@
   <div class="row third-container">
     <div class="large-4 columns">
         <?php while(have_posts()):the_post();?>
-          <h2><?php the_field('titel_box_ueber_uns'); ?></h2>
+          <h4><?php the_field('titel_box_kunstwerke'); ?></h4>
 
           <p><?php the_field('kunstwerke'); ?></p>
         <?php endwhile; ?>
     </div>
     
     <div class="large-4 columns">
-      <h4>Restaurierung</h4>
-      <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
+      <?php while(have_posts()):the_post();?>
+          <h4><?php the_field('titel_box_bewertung'); ?></h4>
+
+          <p><?php the_field('bewertung'); ?></p>
+        <?php endwhile; ?>
     </div>
     
     <div class="large-4 columns">
-      <h4>Begutachtung</h4>
-      <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
+        <?php while(have_posts()):the_post();?>
+          <h4><?php the_field('titel_box_restaurierung'); ?></h4>
+
+          <p><?php the_field('restaurierung'); ?></p>
+        <?php endwhile; ?>
     </div>
   
     </div>
