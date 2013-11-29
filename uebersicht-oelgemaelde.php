@@ -27,10 +27,15 @@
       <div class="row">
 
           <?php 
+          //Query for Custom Taxonomy used
+   $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
+         echo $term->name; 
+
       // the query
-  $the_query = new WP_Query( array ( 'post_type' => 'albertis-kunstwerke', 'posts_per_page' => '21', '$meta_value' => 'Ölgemälde' ) ); ?> 
-
-
+  $the_query = new WP_Query( array ( 
+                                    'post_type' => 'albertis-kunstwerke', 
+                                    'posts_per_page' => '21', 
+                                    'kunstart' => 'olgemalde' ) ); ?> 
 
 
 
