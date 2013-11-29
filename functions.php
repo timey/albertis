@@ -185,11 +185,11 @@ if (function_exists('add_theme_support')) {
 
 // ADDING POST THUMBNAILS TO POSTS
 function InsertFeaturedImage($content) {
- 
+
 global $post;
- 
+
 $original_content = $content;
- 
+
     if ( current_theme_supports( 'post-thumbnails' ) ) {
  
         if ((is_page()) || (is_single())) {
@@ -203,9 +203,10 @@ $original_content = $content;
     }
     return $content;
 }
- 
+
 add_filter( 'the_content', 'InsertFeaturedImage' );
 
 //Later on delete "Comments", "+New" for User Role Borisch 
 //Also Change Logo
+
 ?>
