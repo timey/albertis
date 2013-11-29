@@ -114,7 +114,7 @@ div.category_information h3{
 	color:#fff;
 	height:inherit;
 }
-
+/*
 div.imagefeed a:hover + div.category_information, div.category_information:hover{
 	visibility: visible;
 	opacity:1;
@@ -124,7 +124,18 @@ div.imagefeed a:hover + div.category_information, div.category_information:hover
 	-ms-transition: all 0.5s;
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
-} 
+} */
+
+div.imagefeed a:hover > div.category_information{
+	visibility: visible;
+	opacity:1;
+
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
 
 /************ SINGLE.PHP - KUNSTWERK ***********/
 

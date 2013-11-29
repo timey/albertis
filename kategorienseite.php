@@ -24,14 +24,13 @@
         <!-- the loop -->
         <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
           <div class="large-4 medium-4 columns imagefeed">
-            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('index-categories'); ?></a>
-            
+            <a href="<?php the_permalink(); ?>">
+              <?php the_post_thumbnail('index-categories'); ?>
 
-            <!--Contents that are only shown on HOVER -->
-            <div class="category_information columns absolute_center">
-              <h3 class="absolute_center"><?php echo $post->post_title ?></h3>
-            </div>
-
+              <!--Contents that are only shown on HOVER -->
+              <div class="category_information columns absolute_center">
+                <h3 class="absolute_center"><?php echo $post->post_title ?></h3>
+              </div>
 
           </div>
         <?php endwhile; ?>
