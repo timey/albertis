@@ -7,13 +7,15 @@
 
 
 <!-- Loop der letzten 21 Post aus dem Post Type albertis-kunstwerke  -->
+
   <div class="row first-container">
     <div class="large-12 columns">
       <div class="row">
 
           <?php 
+          $get_page_id = get_the_ID(); 
       // the query
-      $the_query = new WP_Query( array ( 'post_type' => 'page', 'posts_per_page' => '21' ) ); ?>
+      $the_query = new WP_Query( array ( 'post_type' => 'page', 'post_parent' => $get_page_id, 'posts_per_page' => '21' ) ); ?>
 
       <?php if ( $the_query->have_posts() ) : ?>
 
@@ -21,8 +23,16 @@
 
         <!-- the loop -->
         <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-           <div class="large-4 medium-4 columns imagefeed">
-           <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('index-categories'); ?></a>
+          <div class="large-4 medium-4 columns imagefeed">
+            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('index-categories'); ?></a>
+            
+
+            <!--Contents that are only shown on HOVER -->
+            <div class="category_information columns absolute_center">
+              <h3 class="absolute_center"><?php echo $post->post_title ?></h3>
+            </div>
+
+
           </div>
         <?php endwhile; ?>
         <!-- end of the loop -->

@@ -76,7 +76,55 @@ footer ul {
 
 .imagefeed {
 	margin-bottom: 1.5em;
+
+	/* Ergänzung Sonja */
+	position:relative;
+	z-index: 50;
 }
+
+
+/* KATEGORIENSEITE */
+/* Box with Data for the specific Category */
+
+.absolute_center{
+	margin: auto;
+	position: absolute;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+}
+
+div.category_information{
+	background-color: rgba(0,0,0,0.75);
+	color:#fff;
+	position:absolute;
+	bottom:0;
+	left:0;
+	height:50%;
+
+	z-index: 500;
+	text-align: center;
+
+	visibility: hidden;
+	opacity: 0;
+}
+
+div.category_information h3{
+	color:#fff;
+	height:inherit;
+}
+
+div.imagefeed a:hover + div.category_information, div.category_information:hover{
+	visibility: visible;
+	opacity:1;
+
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+} 
 
 /************ SINGLE.PHP - KUNSTWERK ***********/
 
@@ -109,6 +157,5 @@ div.imagedata-container p {
 .third-container{
 	margin-bottom: 5em !important;
 }
-
 
 
