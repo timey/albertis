@@ -20,7 +20,6 @@ function create_post_type() {
 }
 
 //Get Post Title from custom field "bildname"
-add_filter('the_title', 'post_title_equals_bildname', 10, 2);
 function post_title_equals_bildname($title, $post_id)
 	{
 		if($new_title=get_post_meta($post_id, 'bildname', true)) {
@@ -28,6 +27,17 @@ function post_title_equals_bildname($title, $post_id)
 		}
 		return $title;
 	}
+add_filter('the_title', 'post_title_equals_bildname', 10, 2);
+/*
+//Make Picture Upload the Featured Image of a Post
+function set_bild_as_featured_image($value, $post_id, $field){
+	if($value !=""){
+		add_post_meta($post_id, '_thumbnail_id', $value);
+	}
+	return $value;
+}
+add_filter('acf/update_value/name=bild', 'set_bild_as_featured_image', 10, 3);
+*/
 
 //Create Custom Taxonomy "Kunstart" for Custom Post Type "Kunstwerke"
 // hook into the init action and call create_book_taxonomies when it fires
