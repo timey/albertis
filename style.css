@@ -43,6 +43,10 @@ footer ul {
 .logo {
 	background: rgba(244,244,244,0.9);
 	padding: 1.5em 1.5em 1.5em 1.5em;
+
+	-webkit-box-shadow: 0px 7px 50px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 7px 50px 0px rgba(0,0,0,0.5);
+	box-shadow: 0px 7px 50px 0px rgba(0,0,0,0.5);
 }
 .topnav{
 	padding-right: 0;
