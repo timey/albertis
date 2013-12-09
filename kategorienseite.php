@@ -11,7 +11,12 @@
           <?php 
           $get_page_id = get_the_ID(); 
           // the query
-          $the_query = new WP_Query( array ( 'post_type' => 'page', 'post_parent' => $get_page_id, 'posts_per_page' => '21', 'orderby' => 'title', 'order' => 'ASC' ) ); ?>
+          $the_query = new WP_Query( array ( 'post_type' => 'page', 
+                                             'post_parent' => $get_page_id, 
+                                             'posts_per_page' => '21', 
+                                             'orderby' => 'title', 
+                                             'order' => 'ASC' 
+                                            ) ); ?>
 
           <?php if ( $the_query->have_posts() ) : ?>
 
