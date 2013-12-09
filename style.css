@@ -60,6 +60,7 @@ footer ul {
 .menu {
 	list-style-type: none;
 	display: inline-block;
+	background-color: rgba(244,244,244,0.9);
 }
 .menu li {
 	float: left;
@@ -73,14 +74,13 @@ footer ul {
 
 .menu li a {
 	text-align: center;
-	background-color: rgba(244,244,244,0.9);
+//	background-color: rgba(244,244,244,0.9);
 	font-size: 0.9rem;
-	padding-left: 2rem;
-	padding-right: 2rem;
-	padding-top: 1rem;
-	padding-bottom: 1rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
 	color: black !important;
-	margin: 9 9 1.25rem;
 	line-height: normal;
 	display: inline-block;
 
@@ -90,7 +90,13 @@ footer ul {
 }
 
 .menu li a:hover {
-	background-color: #5cb44e; 
+	background: rgba(111, 202, 96, 0.5);
+	
+}
+
+.topnav form,
+.topnav form input {
+	margin: 0;
 }
 
 .imagefeed {
