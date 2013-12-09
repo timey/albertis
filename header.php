@@ -16,7 +16,7 @@
     
   <div class="row">
     <div class="large-3 medium-3 columns logo">
-      <h1><img src="<?php bloginfo('template_url'); ?>/img/logo_albertis.png"> </h1>
+      <a href="<?php echo get_option('home'); ?>"/><img src="<?php bloginfo('template_url'); ?>/img/logo_albertis.png"></a>
     </div>
     <div class="large-9 medium-9 columns topnav">
 
