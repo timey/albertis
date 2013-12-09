@@ -18,6 +18,10 @@ body{
 	-o-background-size: cover;
 }
 
+footer {
+	background: darkgrey;
+}
+
 footer ul {
 	list-style:none;
 	margin-left: 0;
@@ -37,6 +41,11 @@ footer ul {
 	padding-right: 0;
 }
 
+.topnav form {
+	float: right;
+	display: inline-block;
+}
+
 .menu {
 	list-style-type: none;
 	display: inline-block;
@@ -54,7 +63,7 @@ footer ul {
 .menu li a {
 	text-align: center;
 	background-color: rgba(244,244,244,0.9);
-	font-size: 1rem;
+	font-size: 0.9rem;
 	padding-left: 2rem;
 	padding-right: 2rem;
 	padding-top: 1rem;

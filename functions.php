@@ -182,6 +182,8 @@ if (function_exists('add_theme_support')) {
 		add_image_size( 'page-single', '0', '500', false );
 }
 
+add_theme_support('search-form');
+
 
 // ADDING POST THUMBNAILS TO POSTS
 function InsertFeaturedImage($content) {

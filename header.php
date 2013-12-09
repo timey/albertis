@@ -18,11 +18,13 @@
     <div class="large-3 medium-3 columns logo">
       <a href="<?php echo get_option('home'); ?>"/><img src="<?php bloginfo('template_url'); ?>/img/logo_albertis.png"></a>
     </div>
-    <div class="large-9 medium-9 columns topnav">
+    <div class="large-9 medium-6 columns topnav">
 
-      <?php wp_nav_menu(array('container_class' => 'right button-group','theme_location'=>'header-menu')); ?>
-      
+      <?php wp_nav_menu(array('container_class' => 'button-group right','theme_location'=>'header-menu')); ?>
 
+    <!-- </div>
+     <div class="large-3 medium-3 columns"> -->
+      <?php get_search_form(array('container_class' => '')); ?>
      </div>
    </div>
   
