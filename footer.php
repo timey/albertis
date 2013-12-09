@@ -1,19 +1,26 @@
 
+  </div>
+</div>
 <!-- Footer -->
   <footer>
+  <div class="row">
+    <div class="large-12 medium-12 -small-12 columns footer">
+
     <div class="row">
-        <hr />
         <?php get_sidebar( 'footer' ); ?>
     </div>
 
     <div class="row">
 
-    <hr />
 
-      <div class="large-4 large-centered medium-4 small-4 small-centered columns">
+      <div class="large-4 large-centered medium-6 small-10 small-centered columns">
         <small class="clearfix">&copy; 2013 - <?php echo date("Y"); echo " "; echo bloginfo('name'); ?> - seit 1865</small>  
       </div>
     </div>
+
+  </div>
+</div>
+
   </footer>
 
 

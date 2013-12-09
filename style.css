@@ -18,13 +18,16 @@ body{
 	-o-background-size: cover;
 }
 
-footer {
-	background: darkgrey;
-}
-
 footer ul {
 	list-style:none;
 	margin-left: 0;
+}
+
+.footer {
+	background: rgba(244,244,244,0.9);
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	padding: 2rem;
 }
 
 .bg {
