@@ -46,6 +46,7 @@
 
           <p><?php the_field('kunstwerke'); ?></p>
         <?php endwhile; ?>
+        <a href="<?php echo get_permalink(40); ?>"><button>weitere Infos</button></a>
     </div>
     
     <div class="large-4 columns">
