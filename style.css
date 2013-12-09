@@ -177,6 +177,10 @@ div.imagedata-container p {
 	margin-bottom: 0;
 }
 
+div.imagedata-container table td {
+	width: 13rem;
+}
+
 
 @media only screen and (min-width: 40.063em) and (max-width: 64.063em) {
 .first-container-landingpage .ueber-uns{

@@ -20,7 +20,11 @@
 
 <div class="row imagedata-container">
   <div class="large-6 medium-6 columns">
-    <?php get_template_part( 'content', get_post_format() ); ?>
+    <h4>Bildinformationen</h4>
+   
+   <!-- *** ALTE TABELLE ALS BACKUP ***
+
+      <?php get_template_part( 'content', get_post_format() ); ?>
         <table>
           <tr>
             <td>
@@ -71,16 +75,49 @@
             </td> 
           </tr>
 
-        </table>
+        </table> -->
+
+      <?php 
+ 
+        $fields = get_field_objects(); ?>
+ 
+          <?php if( $fields ): ?>
+            <table>
+            <?php foreach( $fields as $field ): ?>
+           
+           <?php if( $field['value'] ): ?>
+    
+              <?php if($field['name'] !== 'test') : ?>
+                <?php if($field['name'] !== 'bildbeschreibung') :?>
+                  <?php if($field['name'] !== 'bild') :?>
+                    <?php if($field['name'] !== 'herkunftsnachweis') :?>
+                <tr><td><?php echo $field['label']; ?>:</td> <td><?php echo $field['value']; ?></td></tr>
+              <?php else: 
+                ;
+              ?> 
+
+              <?php endif; ?>
+              <?php endif; ?>
+              <?php endif; ?>
+              <?php endif; ?>
+              <?php endif; ?>
+
+           
+            <?php endforeach; ?>
+            </table>
+          <?php endif; ?>
+
   </div>
 
   <div class="large-6 medium-6 columns">
+    <?php echo do_shortcode( '[contact-form-7 id="170" title="Kontaktformular 1"]'); ?>
     <button>Ich will den shit!</button>
+
   </div>
 </div>   
 
 <div class="row imagedata-container">
-  <div class="large-6 medium-6 columns">
+  <div class="large-12 medium-12 small-12 columns">
       <h4>Bildbeschreibung</h4>
       <p class="imagedata"><?php the_field('bildbeschreibung'); ?></p>
   </div>
