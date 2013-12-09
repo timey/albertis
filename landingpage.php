@@ -10,13 +10,13 @@
   <div class="row first-container">
     <div class="large-12 columns">
       <div class="row">
-        <div class="large-6 large-offset-1 columns">
+        <div class="large-6 large-offset-1 medium-6 small-12 columns">
           <?php while(have_posts()):the_post();?>
           <h4><?php the_field('titel_box_ueber_uns'); ?></h4>
           <p><?php the_field('ueber_uns'); ?></p>
         <?php endwhile; ?>
         </div>
-         <div class="large-4 columns">
+         <div class="large-4 medium-6 small-12 columns">
           <img class="avatar" src='<?php bloginfo('template_url'); ?>/img/borisch.jpg' alt="Harald Borisch"/>
         </div>
          <div class="large-1 columns">
