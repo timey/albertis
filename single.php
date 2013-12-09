@@ -20,7 +20,7 @@
 </div>
 
 <div class="row imagedata-container">
-  <div class="large-6 medium-6 columns">
+<!--  <div class="large-6 medium-6 columns">
     <?php get_template_part( 'content', get_post_format() ); ?>
         <p class="imagedata">Bildname: <?php the_field('bildname'); ?></p>
         <p class="imagedata">Künstlername: <?php the_field('kuenstler'); ?></p>
@@ -30,6 +30,62 @@
         <p class="imagedata">Maße: <?php the_field('breite'); ?> x <?php the_field('hoehe'); ?> cm</p>
         <p class="imagedata">Herkunftsnachweis: <?php the_field('herkunftsnachweis'); ?></p>
   </div>
+-->
+  <div class="large-6 medium-6 columns">
+    <?php get_template_part( 'content', get_post_format() ); ?>
+        <table>
+          <tr>
+            <td>
+              Bildname:
+            </td> 
+            <td>
+              <?php the_field('bildname'); ?>
+            </td> 
+          </tr>
+           <tr>
+            <td>
+              Künstlername:
+            </td> 
+            <td>
+              <?php the_field('kuenstler'); ?>
+            </td> 
+          </tr>
+           <tr>
+            <td>
+              Erscheinungsjahr:
+            </td> 
+            <td>
+              <?php the_field('jahr'); ?>
+            </td> 
+          </tr>
+           <tr>
+            <td>
+              Malrgrund:
+            </td> 
+            <td>
+              <?php the_field('malgrund'); ?>
+            </td> 
+          </tr>
+           <tr>
+            <td>
+              Ort:
+            </td> 
+            <td>
+              <?php the_field('entstehungsort'); ?>
+            </td> 
+          </tr>
+          <tr>
+            <td>
+              Maße:
+            </td> 
+            <td>
+              <?php the_field('breite'); ?> x <?php the_field('hoehe'); ?> cm
+            </td> 
+          </tr>
+
+        </table>
+  </div>
+
   <div class="large-6 medium-6 columns">
     <button>Ich will den shit!</button>
   </div>
