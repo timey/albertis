@@ -90,8 +90,13 @@ footer ul {
 }
 
 .menu li a:hover {
-	//border-bottom: 0.5rem solid #5cb44e;
+	background: rgba(111, 202, 96, 0.5);
 	
+}
+
+.topnav form,
+.topnav form input {
+	margin: 0;
 }
 
 .imagefeed {
