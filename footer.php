@@ -11,7 +11,7 @@
     <hr />
 
       <div class="large-4 large-centered medium-4 small-4 small-centered columns">
-        <small class="clearfix">&copy; 2013 - <?php echo date("Y"); echo " "; echo bloginfo('name'); ?></small>  
+        <small class="clearfix">&copy; 2013 - <?php echo date("Y"); echo " "; echo bloginfo('name'); ?> - seit 1865</small>  
       </div>
     </div>
   </footer>
