@@ -7,7 +7,7 @@
 
 <!-- Über Uns Bereich -->
 
-  <div class="row first-container bg">
+  <div class="row first-container-landingpage bg">
     <div class="large-12 columns">
       <div class="row">
         <div class="large-7 medium-6 small-12 columns ueber-uns">

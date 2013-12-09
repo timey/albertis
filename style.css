@@ -32,7 +32,7 @@ footer ul {
 
 .bg {
 	background: rgba(244,244,244,0.9);
-	padding: 4rem 2rem;
+	padding: 2rem 2rem;
 	margin-top: 2rem;
 
 	-webkit-box-shadow: 0px 7px 50px 0px rgba(0,0,0,0.5);
@@ -173,7 +173,7 @@ div.imagedata-container p {
 
 
 @media only screen and (min-width: 40.063em) and (max-width: 64.063em) {
-.first-container .ueber-uns{
+.first-container-landingpage .ueber-uns{
 	padding: 1rem 2rem;
 }
 }
@@ -183,14 +183,21 @@ div.imagedata-container p {
 
 .first-container{
 	margin-top: 4rem;
+	
 }
 
-.first-container .ueber-uns{
+.first-container-landingpage{
+	margin-top: 4rem;
+	padding: 4rem 2rem;
+}
+
+.first-container-landingpage .ueber-uns{
 	padding: 1.5rem 2rem;
 }
 
 .second-container{
-	margin-bottom: 3rem !important;
+	margin-bottom: 1rem !important;
+	padding: 2rem 2rem;
 }
 }
 
