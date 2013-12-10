@@ -200,6 +200,11 @@ div.imagedata-container p {
 	margin-bottom: 0;
 }
 
+div.imagedata-container .wpcf7 p {
+	font-size: 90%;
+	font-style: italic;
+}
+
 div.imagedata-container table td {
 	width: 13rem;
 }
