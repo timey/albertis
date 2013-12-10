@@ -73,6 +73,12 @@ function create_kunstwerke_taxonomies() {
 	register_taxonomy( 'kunstart', 'albertis-kunstwerke' , $args );
 }
 
+function remove_custom_taxonomy_box(){
+	remove_meta_box('kunstart'.'div', 'albertis-kunstwerke', 'side');
+
+}
+add_action('admin_menu', 'remove_custom_taxonomy_box');
+
 ////////////////////////////////////////////////////
 //THIS SECTION MODIFIES THE ADMIN MENU AND DASHBOARD
 //Change the "Howdy, admin" to something more serious

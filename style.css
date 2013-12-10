@@ -171,8 +171,17 @@ a:hover .info{
 div.info h3 {
 	color: #0FA00F;		
 	font-size: 1.375rem;
+	font-weight: 600;
 	line-height: 1.8rem;
-	padding: 0.3rem 1rem;
+	padding: 0.5rem 1rem 0.3rem;
+}
+
+div.info h4 {
+	color: #000;		
+	font-size: 1.25rem;
+	font-weight: 300;
+	line-height: 1.5rem;
+	padding: 0.2rem 1rem;
 }
 
 /* KATEGORIENSEITE */
@@ -180,6 +189,11 @@ div.info h3 {
 .imagefeed a:hover .overlay{
 	height: 75%;
 	bottom: 0%;
+}
+
+.imagefeed a:hover > .overlay p{
+	opacity: 1;
+	visibility: visible;
 }
 
 .overlay { 
@@ -192,7 +206,8 @@ div.info h3 {
 	margin-right: 0.9375rem; 
 	height: 25%;
 
-	-webkit-transition: all 0.4s ease-in-out, height 0.4s ease-in-out;
+	-webkit-transition: height 0.4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out,;
 }
 
 div.overlay h3 {
@@ -200,6 +215,18 @@ div.overlay h3 {
 	font-size: 1.375rem;
 	line-height: 1.8rem;
 	padding: 0.3rem 1rem;
+}
+
+div.overlay p {
+	color: #000;		
+	font-size: 1.0rem;
+	line-height: 1.4rem;
+	padding: 0.3rem 1rem;
+
+	opacity: 0;
+	visibility: hidden;
+
+	-webkit-transition: opacity 0.3s ease-in-out 0.2s;
 }
 
 

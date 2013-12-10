@@ -26,14 +26,6 @@
     <div class="large-12 columns">
       <div class="row">
 
-        <?php /*
-          //Query for Custom Taxonomy used
-          $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy')); ?>
-          echo $term->name; 
-          */
-          ?>
-
-
   <?php
       // the query
   $the_query = new WP_Query( array ( 
@@ -46,14 +38,14 @@
       <?php if ( $the_query->have_posts() ) : ?>
 
         <!-- pagination here -->
-
-        <!-- the loop -->
+<!-- ALTER QUERY 
         <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
           <div class="large-4 medium-4 columns imagefeed">
           <a href="<?php the_permalink(); ?>">
             <?php the_post_thumbnail('index-categories'); ?>
           
-            <!--Pull Title and Artist-->
+            Pull Title and Artist
+
             <div class="category_information columns absolute_center">
               <h3 class="absolute_center">
                 <?php 
@@ -67,8 +59,7 @@
           </a>
 
           </div> 
-        <?php endwhile; ?>
-        <!-- end of the loop -->
+        <?php endwhile; ?>-->
 
 <!-- 2. Version des Loops -->
 
@@ -79,14 +70,14 @@
             <?php the_post_thumbnail('index-categories'); ?>
        
          
+            <!-- Pull Titel and Artist -->
              <div class="info">
-                <h3 class="">
                   <?php 
                     $post_id=$post->ID;
-                    $post_title_custom=get_post_meta($post_id, 'bildname', true); 
-                    echo $post_title_custom;
-                  ?>
-                </h3> 
+                    $post_title_custom=get_post_meta($post_id, 'bildname', true);
+                    $post_artist_custom=get_post_meta($post_id, 'kuenstler', true); ?>
+                    <h3><?php echo $post_title_custom; ?></h3>
+                    <h4><?php echo $post_artist_custom; ?></h4>
               </div>
           </a>
 
