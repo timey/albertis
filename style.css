@@ -145,12 +145,41 @@ menu ul li a:hover {
 
 /* KATEGORIENSEITE */
 
-.overlay { position: absolute; top: 75%; left: 0; right:0; bottom:0;  background-color: rgba(0,0,0,0.5); 
-	margin-left: 0.9375rem; margin-right: 0.9375rem; height: 25%;
+.imagefeed a:hover .overlay{
+	
+	top: 30%;
+	bottom: 45%;
+}
+
+.overlay { 
+	position: absolute; 
+	top: 75%; 
+	left: 0; 
+	right:0; 
+	bottom:0;  
+
+	background-color: rgba(36, 126, 32, 0.8);
+/*		background-color: rgba(238,238,238,0.9);  */
+	margin-left: 0.9375rem;
+	margin-right: 0.9375rem; 
+	height: 25%;
+
+    -webkit-transition-property: top, bottom;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-property: top, bottom;
+    -moz-transition-duration: 0.3s;
+    -ms-transition-property: top, bottom;
+    -ms-transition-duration: 0.3s;
+    -o-transition-property: top, bottom;
+    -o-transition-duration: 0.3s;
+    transition-property: top, bottom;
+    transition-duration: 0.3s;
+
 }
 
 div.overlay h3 {
 	color: #fff;
+/*		color: #0FA00F;		*/
 	text-align: center;
 	font-size: 1.375rem;
 	line-height: 1.8rem;
@@ -184,6 +213,10 @@ div.category_information{
 
 	visibility: hidden;
 	opacity: 0;
+
+	/* Anpassung Tim, breite an Bild angepasst */
+	margin-left: 0.9375rem; 
+	margin-right: 0.9375rem;
 }
 
 div.category_information h3{
