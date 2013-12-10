@@ -34,6 +34,24 @@ footer ul p{
 	font-size: 0.9rem;
 }
 
+footer ul.menu,
+footer ul.menu a:hover {
+	background: none;
+}
+
+
+footer ul.menu a {
+	padding: 0;
+	margin: 0;
+	line-height: 1.1rem;
+}
+
+footer ul a:hover {
+	// color: #008cba !important;
+	border-bottom: 2px solid #008cba;
+	
+}
+
 
 .bg {
 	background: rgba(244,244,244,0.9);
