@@ -26,16 +26,20 @@
     <div class="large-12 columns">
       <div class="row">
 
-          <?php 
+        <?php /*
           //Query for Custom Taxonomy used
-   $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
-         echo $term->name; 
+          $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy')); ?>
+          echo $term->name; 
+          */
+          ?>
 
+
+  <?php
       // the query
   $the_query = new WP_Query( array ( 
                                     'post_type' => 'albertis-kunstwerke', 
                                     'posts_per_page' => '21', 
-                                    'kunstart' => 'olgemalde' ) ); ?> 
+                                    'kunstarten' => 'oelgemaelde' ) ); ?> 
 
 
 
@@ -45,8 +49,23 @@
 
         <!-- the loop -->
         <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-           <div class="large-4 medium-4 columns imagefeed">
-           <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('index-categories'); ?></a>
+          <div class="large-4 medium-4 columns imagefeed">
+          <a href="<?php the_permalink(); ?>">
+            <?php the_post_thumbnail('index-categories'); ?>
+          
+            <!--Pull Title and Artist-->
+            <div class="category_information columns absolute_center">
+              <h3 class="absolute_center">
+                <?php 
+                $post_id=$post->ID;
+                $post_title_custom=get_post_meta($post_id, 'bildname', true); 
+                echo $post_title_custom;
+                ?>
+              </h3>
+            </div>
+
+          </a>
+
           </div> 
         <?php endwhile; ?>
         <!-- end of the loop -->
