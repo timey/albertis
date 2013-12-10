@@ -141,7 +141,7 @@ if (function_exists("register_sidebar"))
 register_sidebar( array(
 	'name' => __( 'First Footer Widget Area', 'albertis' ),
 	'id' => 'first-footer-widget-area',
-	'description' => __( 'The first footer widget area', 'asdu32' ),
+	'description' => __( 'The first footer widget area', 'albertis' ),
 	'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 	'after_widget' => '</li>',
 	'before_title' => '<h5 class="widget-title">',
@@ -152,7 +152,7 @@ register_sidebar( array(
 register_sidebar( array(
 	'name' => __( 'Second Footer Widget Area', 'albertis' ),
 	'id' => 'second-footer-widget-area',
-	'description' => __( 'The second footer widget area', 'asdu32' ),
+	'description' => __( 'The second footer widget area', 'albertis' ),
 	'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 	'after_widget' => '</li>',
 	'before_title' => '<h5 class="widget-title">',
