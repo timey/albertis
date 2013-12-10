@@ -146,32 +146,29 @@ menu ul li a:hover {
 /* KUNSTWERKÜBERSICHT - SEITE */
 
 .kunstwerke a:hover .info{
-	top: 25%;
 	bottom: 0%;
 
-	/* height: 75%; */
-	transform: scaleY(75%);
-	-webkit-transform: scaleY(75%);
-
+	height: 75%;
+	
+	opacity:1;
 	visibility: visible;
 } 
 
 .kunstwerke .info { 
-	position: absolute; 
-	top: 75%; 
-	left: 0; 
-	right:0; 
+	position: absolute;
+	left:0;
+	right:0;
 	bottom:0;  
 
 /*	background-color: rgba(36, 126, 32, 0.8);*/
-		background-color: rgba(238,238,238,0.9);  
+	background-color: rgba(238,238,238,0.9);  
 	margin-left: 0.9375rem;
 	margin-right: 0.9375rem; 
 	height: 0%;
 
 	visibility: hidden;
+	opacity: 0;
 
-	-webkit-transform-origin: 0% 0%;
 	-webkit-transition: all 0.4s ease-in-out, height 0.4s ease-in-out;
 	
 
