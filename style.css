@@ -145,23 +145,19 @@ menu ul li a:hover {
 
 /* KUNSTWERKÜBERSICHT - SEITE */
 
-.kunstwerke a:hover .info{
+a:hover .info{
 	bottom: 0%;
-
 	height: 75%;
-	
-	opacity:1;
+	opacity: 1;
 	visibility: visible;
 } 
 
-.kunstwerke .info { 
+.info { 
 	position: absolute;
 	left:0;
 	right:0;
 	bottom:0;  
-
-/*	background-color: rgba(36, 126, 32, 0.8);*/
-	background-color: rgba(238,238,238,0.9);  
+	background-color: rgba(238,238,238,0.8);  
 	margin-left: 0.9375rem;
 	margin-right: 0.9375rem; 
 	height: 0%;
@@ -170,53 +166,41 @@ menu ul li a:hover {
 	opacity: 0;
 
 	-webkit-transition: all 0.4s ease-in-out, height 0.4s ease-in-out;
-	
-
 }
 
-/* KATEGORIENSEITE */
-
-.imagefeed a:hover .overlay{
-	top: 30%;
-	bottom: 45%;
-}
-
-.overlay { 
-	position: absolute; 
-	top: 75%; 
-	left: 0; 
-	right:0; 
-	bottom:0;  
-
-/*	background-color: rgba(36, 126, 32, 0.8);*/
-		background-color: rgba(238,238,238,0.9);  
-	margin-left: 0.9375rem;
-	margin-right: 0.9375rem; 
-	height: 25%;
-
-    -webkit-transition-property: top, bottom;
-    -webkit-transition-duration: 0.3s;
-    -moz-transition-property: top, bottom;
-    -moz-transition-duration: 0.3s;
-    -ms-transition-property: top, bottom;
-    -ms-transition-duration: 0.3s;
-    -o-transition-property: top, bottom;
-    -o-transition-duration: 0.3s;
-    transition-property: top, bottom;
-    transition-duration: 0.3s;
-
-}
-
-div.overlay h3 {
-/*	color: #fff;*/
-		color: #0FA00F;		
-	text-align: center;
+div.info h3 {
+	color: #0FA00F;		
 	font-size: 1.375rem;
 	line-height: 1.8rem;
 	padding: 0.3rem 1rem;
 }
 
+/* KATEGORIENSEITE */
 
+.imagefeed a:hover .overlay{
+	height: 75%;
+	bottom: 0%;
+}
+
+.overlay { 
+    position: absolute;
+	left:0;
+	right:0;
+	bottom:0;  
+	background-color: rgba(238,238,238,0.8);  
+	margin-left: 0.9375rem;
+	margin-right: 0.9375rem; 
+	height: 25%;
+
+	-webkit-transition: all 0.4s ease-in-out, height 0.4s ease-in-out;
+}
+
+div.overlay h3 {
+	color: #0FA00F;		
+	font-size: 1.375rem;
+	line-height: 1.8rem;
+	padding: 0.3rem 1rem;
+}
 
 
 /* Box with Data for the specific Category */
