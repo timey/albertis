@@ -92,7 +92,8 @@ function wp_admin_bar_new_item(){
 	$wp_admin_bar->add_menu(array(
 		'id'=>'wp-admin-bar-new-item',
 		'title'=>__("Kunstwerk hinzuf&uuml;gen"),
-		'href'=>'http://localhost:8888/test/wp-admin/post-new.php?post_type=albertis-kunstwerke'
+		'href' => admin_url( 'post-new.php?post_type=albertis-kunstwerke'),
+	/*	'href'=>'http://localhost:8888/test/wp-admin/post-new.php?post_type=albertis-kunstwerke', */
 		));
 }
 add_action('wp_before_admin_bar_render', 'wp_admin_bar_new_item');
