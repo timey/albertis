@@ -110,9 +110,8 @@
   </div>
 
   <div class="large-6 medium-6 columns">
+    <h4>Interesse geweckt?</h4>
     <?php echo do_shortcode( '[contact-form-7 id="170" title="Kontaktformular 1"]'); ?>
-    <button>Ich will den shit!</button>
-
   </div>
 </div>   
 
