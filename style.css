@@ -18,17 +18,22 @@ body{
 	-o-background-size: cover;
 }
 
-footer ul {
-	list-style:none;
-	margin-left: 0;
-}
-
-.footer {
+footer div.footer {
 	background: rgba(244,244,244,0.9);
 	margin-top: 2rem;
 	margin-bottom: 2rem;
 	padding: 2rem;
 }
+
+footer ul {
+	list-style:none;
+	margin-left: 0;
+}
+
+footer ul p{
+	font-size: 0.9rem;
+}
+
 
 .bg {
 	background: rgba(244,244,244,0.9);
