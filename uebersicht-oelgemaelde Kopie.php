@@ -70,33 +70,6 @@
         <?php endwhile; ?>
         <!-- end of the loop -->
 
-<!-- 2. Version des Loops -->
-
-        <!-- the loop -->
-        <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-          <div class="large-4 medium-4 columns imagefeed kunstwerke">
-          <a href="<?php the_permalink(); ?>">
-            <?php the_post_thumbnail('index-categories'); ?>
-       
-         
-             <div class="info">
-                <h3 class="">
-                  <?php 
-                    $post_id=$post->ID;
-                    $post_title_custom=get_post_meta($post_id, 'bildname', true); 
-                    echo $post_title_custom;
-                  ?>
-                </h3> 
-              </div>
-          </a>
-
-          </div> 
-        <?php endwhile; ?>
-        <!-- end of the loop -->
-
-<!-- ENDE 2. Version -->
-
-
         <!-- pagination here -->
 
         <?php wp_reset_postdata(); ?>

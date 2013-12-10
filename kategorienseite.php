@@ -41,14 +41,15 @@
           <?php endwhile; ?>
           <!-- end of the loop -->
 
-                  <!-- the loop -->
+<!-- 2. Version des Loops -->
+
+      <!-- the loop -->
         <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
          
           <div class="large-4 medium-4 small-12 columns imagefeed">
             <a href="<?php the_permalink(); ?>">
               <?php the_post_thumbnail('index-categories'); ?>
   
-              <!--Contents that are only shown on HOVER -->
               <div class="overlay">
                 <h3 class=""><?php echo $post->post_title ?></h3> 
               </div>
@@ -59,6 +60,9 @@
 
           <?php endwhile; ?>
           <!-- end of the loop -->
+
+
+<!-- ENDE 2. Version -->  
 
           <!-- pagination here -->
 
