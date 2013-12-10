@@ -5,17 +5,15 @@
 
   <div class="row first-container">
       <?php if(have_posts()): ?>
-				<p class="info">Deine Suchergebnisse f&uuml;r <?php echo $s ?></p>
+				<p class="info">Ihre Suchergebnisse f&uuml;r "<?php echo $s ?>"</p>
 
 			<?php while(have_posts()):the_post();?>
-				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-				<div id="meta">
-					<p>erstellt am: <?php the_date('d.m.Y'); ?> | von <?php the_author(); ?> | Kategorie(n): <?php the_category(','); ?>
-					</p>
-				</div>
-				<div class="entry">
-					<?php the_content(); ?>
-				</div>
+				<a href="<?php the_permalink(); ?>">
+					<h2><?php the_title(); ?></h2>
+					<div class="entry">
+						<?php the_content(); ?>
+					</div>
+				</a>
 			<?php endwhile; ?>
 				<p align="center"><?php next_posts_link('&laquo; &Auml;ltere Eintr&auml;ge') ?> | <?php previous_posts_link('Neuere Eintr&auml;ge &raquo;') ?></p>
 			<?php endif; ?>
