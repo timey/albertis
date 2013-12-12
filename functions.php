@@ -1,9 +1,14 @@
 <?php
 /////////////////////////////////////////////////////
 //THIS SECTION CREATES NEW POST TYPES
-//Custom Post Type "Kunstwerke"
-add_action('init', 'create_post_type');
-function create_post_type() {
+//Custom Post Type "Kunstwerke" and Custom User Role to administrate only Kunstwerke
+remove_role('borisch');
+remove_role('albertis-redakteur');
+remove_role('albertis');
+
+add_action('init', 'setup_post_type');
+function setup_post_type() {
+
 	register_post_type('albertis-kunstwerke',
 		array(
 		'labels' => array(
@@ -13,12 +18,63 @@ function create_post_type() {
 		'has_archive'=>true,
 		'rewrite'=>array('slug' => 'kunstwerke'),
 	/*	'taxonomies' => array('category'), */
-		'supports' => array(/*'title','categorys',*/'thumbnail')
+		'supports' => array(/*'title','categorys',*/'thumbnail'),
+		'capability_type' => array('kunstwerk', 'kunstwerke'),
+		'capabilities' => array(
+			'edit_post' => 'edit_kunstwerk',
+			'edit_posts' => 'edit_kunstwerke',
+			'manage_post' => 'edit_kunstwerk',
+			'manage_posts' => 'manage_kunstwerke',
+			'read_kunstwerk' => 'read_kunstwerk',
+			'read_kunstwerke' => 'read_kunstwerke',
+			'edit_published_post' => 'edit_published_kunstwerk',
+			'edit_others_posts' => 'edit_others_kunstwerke',
+			), 
+		'map_meta_cap' => true,
 	
 		)
 	);
+
+	flush_rewrite_rules(false);
+/*
+	//CREATION OF CUSTOM USER ROLE 
+	add_role('borisch', 'Borisch', array(
+			'edit_kunstwerk' => true,
+			'edit_kunstwerke' => true,
+			'delete_kunstwerk'=> true,
+			'delete_kunstwerke'=> true,
+			'read_kunstwerk'=> true,
+			'read_kunstwerke'=> true,
+			'edit_others_kunstwerk'=> true,
+			'edit_others_kunstwerke'=> true,
+			'publish_kunstwerk'=> true,
+			'publish_kunstwerke'=> true,
+			'edit_published_kunstwerk'=> true,
+			'edit_published_kunstwerke'=> true,
+			'edit_pages'=> true,
+			'publish_pages'=> true,
+			'delete_pages'=> true,
+			'delete_others_pages'=> true,
+			'delete_published_pages'=> true,
+			'edit_published_pages'=> true,
+			'edit_dashboard'=> true,
+			'upload_files'=> true,
+			'edit_files'=> true,
+			'activate_plugins'=> true,
+			'update_core'=> true,
+			'update_plugins'=> true,
+			'edit_theme_options'=>true,
+	)) ;
+
+	$role = get_role('borisch');
+	$role->add_cap('read');	*/
 }
 
+
+	
+
+
+////////////////////////////////////////////////////
 //Get Post Title from custom field "bildname"
 function post_title_equals_bildname($title, $post_id)
 	{
