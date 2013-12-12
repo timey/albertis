@@ -22,88 +22,31 @@
   <div class="large-6 medium-6 columns">
     <h4>Bildinformationen</h4>
    
-   <!-- *** ALTE TABELLE ALS BACKUP ***
-
-      <?php get_template_part( 'content', get_post_format() ); ?>
-        <table>
-          <tr>
-            <td>
-              Bildname:
-            </td> 
-            <td>
-              <?php the_field('bildname'); ?>
-            </td> 
-          </tr>
-           <tr>
-            <td>
-              Künstlername:
-            </td> 
-            <td>
-              <?php the_field('kuenstler'); ?>
-            </td> 
-          </tr>
-           <tr>
-            <td>
-              Erscheinungsjahr:
-            </td> 
-            <td>
-              <?php the_field('jahr'); ?>
-            </td> 
-          </tr>
-           <tr>
-            <td>
-              Malrgrund:
-            </td> 
-            <td>
-              <?php the_field('malgrund'); ?>
-            </td> 
-          </tr>
-           <tr>
-            <td>
-              Ort:
-            </td> 
-            <td>
-              <?php the_field('entstehungsort'); ?>
-            </td> 
-          </tr>
-          <tr>
-            <td>
-              Maße:
-            </td> 
-            <td>
-              <?php the_field('breite'); ?> x <?php the_field('hoehe'); ?> cm
-            </td> 
-          </tr>
-
-        </table> -->
-
       <?php 
  
         $fields = get_field_objects(); ?>
  
           <?php if( $fields ): ?>
             <table>
-            <?php foreach( $fields as $field ): ?>
-           
-           <?php if( $field['value'] ): ?>
-    
-              <?php if($field['name'] !== 'test') : ?>
-                <?php if($field['name'] !== 'bildbeschreibung') :?>
-                  <?php if($field['name'] !== 'bild') :?>
-                    <?php if($field['name'] !== 'herkunftsnachweis') :?>
-                <tr><td><?php echo $field['label']; ?>:</td> <td><?php echo $field['value']; ?></td></tr>
-              <?php else: 
-                ;
-              ?> 
+              <?php foreach( $fields as $field ): ?>
+             
+                 <?php if( $field['value'] ): ?>
+          
+                    <?php if($field['name'] !== 'bildbeschreibung') :?>
+                      <?php if($field['name'] !== 'bild') :?>
+                         <?php if($field['name'] !== 'herkunftsnachweis') :?>
+                      <tr><td><?php echo $field['label']; ?>:</td> <td><?php echo $field['value']; ?></td></tr>
+                    
+                    <?php else: 
+                      ;
+                    ?> 
 
-              <?php endif; ?>
-              <?php endif; ?>
-              <?php endif; ?>
-              <?php endif; ?>
-              <?php endif; ?>
-
-           
-            <?php endforeach; ?>
+                        <?php endif; ?>
+                       <?php endif; ?>
+                      <?php endif; ?>
+                    <?php endif; ?>
+     
+              <?php endforeach; ?>
             </table>
           <?php endif; ?>
 
@@ -117,8 +60,18 @@
 
 <div class="row imagedata-container">
   <div class="large-12 medium-12 small-12 columns">
-      <h4>Bildbeschreibung</h4>
-      <p class="imagedata"><?php the_field('bildbeschreibung'); ?></p>
+      <?php 
+      $fields = get_field_objects();
+      if( $fields ){
+        foreach( $fields as $field ){
+          if( $field['value'] && $field['name'] === 'bildbeschreibung' ) {
+            echo "<h4>".$field['label']."</h4>";
+            echo "<p class='imagedata'>".$field['value']."</p>";
+          }
+          
+        } 
+      }
+      ?>
   </div>
 </div>   
       <?php endwhile; ?>
