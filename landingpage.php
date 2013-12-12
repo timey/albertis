@@ -40,32 +40,41 @@
 <!-- Angebots Bereich -->
  
   <div class="row third-container">
-    <div class="large-4 small-12 columns">
+    
+    <div class="large-4 medium-4 small-12 columns">
         <?php while(have_posts()):the_post();?>
           <h4><?php the_field('titel_box_kunstwerke'); ?></h4>
-
           <p><?php the_field('kunstwerke'); ?></p>
         <?php endwhile; ?>
-        <a href="<?php echo get_permalink(40); ?>"><button>weitere Infos</button></a>
     </div>
     
-    <div class="large-4 small-12 columns">
+    <div class="large-4 medium-4 small-12 columns">
       <?php while(have_posts()):the_post();?>
           <h4><?php the_field('titel_box_bewertung'); ?></h4>
-
           <p><?php the_field('bewertung'); ?></p>
         <?php endwhile; ?>
     </div>
     
-    <div class="large-4 small-12 columns">
+    <div class="large-4 medium-4 small-12 columns">
         <?php while(have_posts()):the_post();?>
           <h4><?php the_field('titel_box_restaurierung'); ?></h4>
-
           <p><?php the_field('restaurierung'); ?></p>
         <?php endwhile; ?>
     </div>
   
+  </div>
+
+  <div class="row third-container">  
+    <div class="large-4 medium-4 small-12 columns">
+        <a href="<?php echo get_permalink( get_page_by_path( 'kunstwerke' ) ); ?>landingpage/kunstwerke"><button>weitere Infos</button></a>
+    </div>   
+    <div class="large-4 medium-4 small-12 columns">
+        <a href="<?php echo get_permalink( get_page_by_path( 'bewertung' ) ); ?>landingpage/bewertung"><button>weitere Infos</button></a>
     </div>
+    <div class="large-4 medium-4 small-12 columns">
+          <a href="<?php echo get_permalink( get_page_by_path( 'bewertung' ) ); ?>landingpage/bewertung"><button>weitere Infos</button></a>
+    </div>
+  </div>
 
 
 

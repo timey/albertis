@@ -20,6 +20,7 @@ body{
 	-moz-background-size: cover;
 	-ms-background-size: cover;
 	-o-background-size: cover;
+	background-size: cover;
 }
 
 a,
@@ -165,6 +166,20 @@ menu ul li a:hover {
 	/* Ergänzung Sonja */
 	position:relative;
 	z-index: 50;
+}
+
+/* ****** LANDINGPAGE ******* */
+
+div.third-container a button {
+	background-color: #0FA00F;
+	color: #fff;
+	bottom:0;
+	display: block;
+	margin: 0 auto;
+}
+
+div.third-container a button:hover {
+	background-color: rgb(58,141,58);
 }
 
 /* KUNSTWERKÜBERSICHT - SEITE */
