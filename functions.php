@@ -153,10 +153,18 @@ function replace_howdy($wp_admin_bar){
 }
 add_filter('admin_bar_menu', 'replace_howdy', 25);
 
+//Delete "New" and "Comments" from Admin Bar
+function admin_bar_remove_links(){
+	global $wp_admin_bar;
+	$wp_admin_bar->remove_node('comments');
+	$wp_admin_bar->remove_node('new-content');
+}
+add_action('wp_before_admin_bar_render', 'admin_bar_remove_links');
+
 //Add "Neues Kunstwerk" to Top Menu Bar
 function wp_admin_bar_new_item(){
 	global $wp_admin_bar;
-	$wp_admin_bar->add_menu(array(
+	$wp_admin_bar->add_node(array(
 		'id'=>'wp-admin-bar-new-item',
 		'title'=>__("Kunstwerk hinzuf&uuml;gen"),
 		'href' => admin_url( 'post-new.php?post_type=albertis-kunstwerke'),
