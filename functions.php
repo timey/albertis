@@ -6,8 +6,8 @@ remove_role('borisch');
 remove_role('albertis-redakteur');
 remove_role('albertis');
 
-add_action('init', 'setup_post_type');
-function setup_post_type() {
+add_action('init', 'create_post_type');
+function create_post_type() {
 
 	register_post_type('albertis-kunstwerke',
 		array(
@@ -20,6 +20,7 @@ function setup_post_type() {
 	/*	'taxonomies' => array('category'), */
 		'supports' => array(/*'title','categorys',*/'thumbnail'),
 		'capability_type' => array('kunstwerk', 'kunstwerke'),
+		'map_meta_cap' => true,
 		'capabilities' => array(
 			'edit_post' => 'edit_kunstwerk',
 			'edit_posts' => 'edit_kunstwerke',
@@ -29,16 +30,13 @@ function setup_post_type() {
 			'read_kunstwerke' => 'read_kunstwerke',
 			'edit_published_post' => 'edit_published_kunstwerk',
 			'edit_others_posts' => 'edit_others_kunstwerke',
-			), 
-		'map_meta_cap' => true,
+			)
+	));
 	
-		)
-	);
+}
 
-	flush_rewrite_rules(false);
-/*
-	//CREATION OF CUSTOM USER ROLE 
-	add_role('borisch', 'Borisch', array(
+//CREATION OF CUSTOM USER ROLE 
+	add_role('albertis-redakteur', 'Albertis-Redakteur', array(
 			'edit_kunstwerk' => true,
 			'edit_kunstwerke' => true,
 			'delete_kunstwerk'=> true,
@@ -51,6 +49,8 @@ function setup_post_type() {
 			'publish_kunstwerke'=> true,
 			'edit_published_kunstwerk'=> true,
 			'edit_published_kunstwerke'=> true,
+			'delete_published_kunstwerk'=> true,
+			'delete_published_kunstwerke'=> true,
 			'edit_pages'=> true,
 			'publish_pages'=> true,
 			'delete_pages'=> true,
@@ -66,39 +66,31 @@ function setup_post_type() {
 			'edit_theme_options'=>true,
 	)) ;
 
-	$role = get_role('borisch');
-	$role->add_cap('read');	*/
+	$role = get_role('albertis-redakteur');
+	$role->add_cap('read');
+
+function add_kunstwerk_caps_to_admin(){
+	$admin_role = get_role('administrator');
+	$admin_role->add_cap('edit_kunstwerk');
+	$admin_role->add_cap('edit_kunstwerke');
+	$admin_role->add_cap('read_kunstwerk');
+	$admin_role->add_cap('read_kunstwerke');
+	$admin_role->add_cap('delete_kunstwerk');
+	$admin_role->add_cap('delete_kunstwerke');
+	$admin_role->add_cap('publish_kunstwerk');
+	$admin_role->add_cap('publish_kunstwerke');
+	$admin_role->add_cap('edit_others_kunstwerk');
+	$admin_role->add_cap('edit_others_kunstwerke');
+	$admin_role->add_cap('edit_published_kunstwerk');
+	$admin_role->add_cap('edit_published_kunstwerke');
+	$admin_role->add_cap('delete_published_kunstwerk');
+	$admin_role->add_cap('delete_published_kunstwerke');
 }
+add_action('admin_init', 'add_kunstwerk_caps_to_admin');
 
-
-	
-
-
-////////////////////////////////////////////////////
-//Get Post Title from custom field "bildname"
-function post_title_equals_bildname($title, $post_id)
-	{
-		if($new_title=get_post_meta($post_id, 'bildname', true)) {
-			return $new_title;
-		}
-		return $title;
-	}
-add_filter('the_title', 'post_title_equals_bildname', 10, 2);
-/*
-//Make Picture Upload the Featured Image of a Post
-function set_bild_as_featured_image($value, $post_id, $field){
-	if($value !=""){
-		add_post_meta($post_id, '_thumbnail_id', $value);
-	}
-	return $value;
-}
-add_filter('acf/update_value/name=bild', 'set_bild_as_featured_image', 10, 3);
-*/
 
 //Create Custom Taxonomy "Kunstart" for Custom Post Type "Kunstwerke"
-// hook into the init action and call create_book_taxonomies when it fires
 add_action( 'init', 'create_kunstwerke_taxonomies', 0 );
-
 // create taxonomy of "Kunstart" for the post type "Kunstwerk"
 function create_kunstwerke_taxonomies() {
 	// Add new taxonomy, make it hierarchical (like categories)
@@ -129,6 +121,7 @@ function create_kunstwerke_taxonomies() {
 	register_taxonomy( 'kunstart', 'albertis-kunstwerke' , $args );
 }
 
+//Remove Taxonomy-Box from BackEnd Dashboard
 function remove_custom_taxonomy_box(){
 	remove_meta_box('kunstart'.'div', 'albertis-kunstwerke', 'side');
 
@@ -136,7 +129,19 @@ function remove_custom_taxonomy_box(){
 add_action('admin_menu', 'remove_custom_taxonomy_box');
 
 ////////////////////////////////////////////////////
-//THIS SECTION MODIFIES THE ADMIN MENU AND DASHBOARD
+//Get Post Title from custom field "bildname"
+function post_title_equals_bildname($title, $post_id)
+	{
+		if($new_title=get_post_meta($post_id, 'bildname', true)) {
+			return $new_title;
+		}
+		return $title;
+	}
+add_filter('the_title', 'post_title_equals_bildname', 10, 2);
+
+
+////////////////////////////////////////////////////
+//THIS SECTION MODIFIES ADMIN MENU AND DASHBOARD
 //Change the "Howdy, admin" to something more serious
 function replace_howdy($wp_admin_bar){
 	$my_account=$wp_admin_bar->get_node('my-account');
@@ -148,7 +153,7 @@ function replace_howdy($wp_admin_bar){
 }
 add_filter('admin_bar_menu', 'replace_howdy', 25);
 
-//Add "Neues Kunstwerk" in the Top Menu Bar
+//Add "Neues Kunstwerk" to Top Menu Bar
 function wp_admin_bar_new_item(){
 	global $wp_admin_bar;
 	$wp_admin_bar->add_menu(array(
@@ -222,11 +227,6 @@ register_sidebar( array(
 	'after_title' => '</h5>',
 ) );
 
-// ADDING THEME SUPPORT FOR THUMBNAILS / FEATURED IMAGES
-
-// add_theme_support('post-thumbnails', array('post','albertis-kunstwerke'));
-
-
 // Add support for Featured Images
 if (function_exists('add_theme_support')) {
 	add_theme_support('post-thumbnails', array( 'post', 'page', 'albertis-kunstwerke' ) );
@@ -235,7 +235,6 @@ if (function_exists('add_theme_support')) {
 }
 
 add_theme_support('search-form');
-
 
 // ADDING POST THUMBNAILS TO POSTS
 function InsertFeaturedImage($content) {
@@ -259,8 +258,5 @@ $original_content = $content;
 }
 
 add_filter( 'the_content', 'InsertFeaturedImage' );
-
-//Later on delete "Comments", "+New" for User Role Borisch 
-//Also Change Logo
 
 ?>
