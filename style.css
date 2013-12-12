@@ -4,6 +4,14 @@ Description: Template für die Webseite Albertis.de
 Author: Tim Hartl
 */
 
+
+/* *** ALBERTIS GRÜN *** 
+
+#0FA00F
+
+*/
+
+
 @import url("css/foundation.css");
 
 body{
@@ -14,6 +22,19 @@ body{
 	-o-background-size: cover;
 }
 
+a,
+a:focus,
+a:hover,
+a:visited {
+	color: #0FA00F;
+}
+
+h4 {
+	color: #0FA00F;
+}
+
+/* **** FOOTER ***** */
+
 footer div.footer {
 	background: rgba(244,244,244,0.95);
 	margin-top: 2rem;
@@ -23,7 +44,6 @@ footer div.footer {
 	-webkit-box-shadow: 0px 7px 30px 0px rgba(0,0,0,0.5);
 	-moz-box-shadow: 0px 7px 30px 0px rgba(0,0,0,0.5);
 	box-shadow: 0px 7px 30px 0px rgba(0,0,0,0.5);
-
 }
 
 footer ul {
@@ -35,20 +55,19 @@ footer ul p{
 	font-size: 0.9rem;
 }
 
-footer ul.menu,
-footer ul.menu a:hover {
-	background: none;
+footer a:hover {
+	border-bottom: 2px solid #0FA00F;	
 }
 
-
-footer ul.menu a {
-	padding: 0;
-	margin: 0;
-	line-height: 1.1rem;
+footer ul i {
+	text-align: left;
+	font-size: 1.7rem;
+	line-height: 2rem;
+	font-weight: 300;
 }
 
-footer ul a:hover {
-	border-bottom: 2px solid #008cba;	
+footer div.impressum {
+	text-align: center;
 }
 
 .bg {
@@ -176,7 +195,7 @@ a:hover .info{
 div.info h3 {
 	color: #0FA00F;		
 	font-size: 1.375rem;
-	font-weight: 600;
+	font-weight: 400;
 	line-height: 1.8rem;
 	padding: 0.5rem 1rem 0.3rem;
 }
@@ -218,6 +237,7 @@ div.info h4 {
 div.overlay h3 {
 	color: #0FA00F;		
 	font-size: 1.375rem;
+	font-weight: 400;
 	line-height: 1.8rem;
 	padding: 0.3rem 1rem;
 }
@@ -316,34 +336,52 @@ div.imagedata-container table td {
 	width: 13rem;
 }
 
+/* **** viewport min 40.063em until max **** */
+
+@media only screen and (min-width: 40.063em) {
+
+	/* **** Abstand Zitat nach oben nur an großen Geräten **** */	
+	footer div#second {
+		margin-top: 0.8rem;
+	}
+
+}
+
+/* **** viewport min 40.063em until max 64.063em **** */
 
 @media only screen and (min-width: 40.063em) and (max-width: 64.063em) {
-.first-container-landingpage .ueber-uns{
-	padding: 1rem 2rem;
+	
+	/* **** Höhe von Überuns-Text auf "Medium-Devices" angepasst **** */	
+	.first-container-landingpage .ueber-uns{
+		padding: 1rem 2rem;
+	}
 }
-}
+
+/* **** viewport min 64.063em **** */
 
 @media only screen and (min-width: 64.063em) {
 
+	/* **** Abstand zum Header auf Großen Devices größer **** */
+	.first-container {
+		margin-top: 4rem;
+	}
 
-.first-container{
-	margin-top: 4rem;
-	
-}
+	/* **** Abstand zum Header auf Großen Devices größer - spezielles padding für Landingpage **** */
+	.first-container-landingpage{
+		margin-top: 4rem;
+		padding: 4rem 2rem;
+	}
 
-.first-container-landingpage{
-	margin-top: 4rem;
-	padding: 4rem 2rem;
-}
+	/* **** Höhe von Überuns-Text auf Großen Devices angepasst **** */
+	.first-container-landingpage .ueber-uns{
+		padding: 1.5rem 2rem;
+	}
 
-.first-container-landingpage .ueber-uns{
-	padding: 1.5rem 2rem;
-}
-
-.second-container{
-	margin-bottom: 1rem !important;
-	padding: 2rem 2rem;
-}
+	/* **** Abstand zum 3. Bereich auf Großen Devices größer - spezielles padding **** */
+	.second-container{
+		margin-bottom: 1rem !important;
+		padding: 2rem 2rem;
+	}
 }
 
 

@@ -31,8 +31,8 @@
  <div class="bg large-12 columns">
   
 <div class="row second-container">
-    <div class="large-3 large-centered  columns">
-        <h3>Was wir bieten</h3>
+    <div class="large-4 medium-6 small-10 small-centered large-centered  columns">
+        <h2>Unser Angebot</h2>
     </div>
 </div>
 
@@ -40,7 +40,7 @@
 <!-- Angebots Bereich -->
  
   <div class="row third-container">
-    <div class="large-4 columns">
+    <div class="large-4 small-12 columns">
         <?php while(have_posts()):the_post();?>
           <h4><?php the_field('titel_box_kunstwerke'); ?></h4>
 
@@ -49,7 +49,7 @@
         <a href="<?php echo get_permalink(40); ?>"><button>weitere Infos</button></a>
     </div>
     
-    <div class="large-4 columns">
+    <div class="large-4 small-12 columns">
       <?php while(have_posts()):the_post();?>
           <h4><?php the_field('titel_box_bewertung'); ?></h4>
 
@@ -57,7 +57,7 @@
         <?php endwhile; ?>
     </div>
     
-    <div class="large-4 columns">
+    <div class="large-4 small-12 columns">
         <?php while(have_posts()):the_post();?>
           <h4><?php the_field('titel_box_restaurierung'); ?></h4>
 

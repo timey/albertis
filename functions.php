@@ -148,7 +148,7 @@ if (function_exists("register_sidebar"))
 register_sidebar( array(
 	'name' => __( 'First Footer Widget Area', 'albertis' ),
 	'id' => 'first-footer-widget-area',
-	'description' => __( 'The first footer widget area', 'albertis' ),
+	'description' => __( 'Adressangaben', 'albertis' ),
 	'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 	'after_widget' => '</li>',
 	'before_title' => '<h5 class="widget-title">',
@@ -159,18 +159,7 @@ register_sidebar( array(
 register_sidebar( array(
 	'name' => __( 'Second Footer Widget Area', 'albertis' ),
 	'id' => 'second-footer-widget-area',
-	'description' => __( 'The second footer widget area', 'albertis' ),
-	'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-	'after_widget' => '</li>',
-	'before_title' => '<h5 class="widget-title">',
-	'after_title' => '</h5>',
-) );
-
-//ADD FOOTER WIDGET	3
-register_sidebar( array(
-	'name' => __( 'Third Footer Widget Area', 'albertis' ),
-	'id' => 'third-footer-widget-area',
-	'description' => __( 'The third footer widget area', 'albertis' ),
+	'description' => __( 'Hier können Sie das Zitat ändern', 'albertis' ),
 	'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 	'after_widget' => '</li>',
 	'before_title' => '<h5 class="widget-title">',
