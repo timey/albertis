@@ -27,20 +27,25 @@
           if ( isset( $_GET['motive'] ) ) {
               $args['motive'] = $_GET['motive'];
               $page_link = add_query_arg( 'motive', $_GET['motive'], $page_link );
-          }
+          } ;?>
 
-          if ( is_array( $motive ) ) {
-              echo '<div class="filter_dropdown_wrapper large-4 medium-4 columns">';
-              echo '<a href=""><button>Filtern Sie hier nach Bildmotiv</button>';
-              echo '<ul class="filter_dropdown_main large-12 medium-12 columns">';
-              foreach ( $motive as $motive ){
-                  echo '<li class="filter_dropdown_tag"><a href="' . htmlentities( add_query_arg( 'motive', $motive->slug, $page_link ) ) . '">' . $motive->name . '</a></li>';
-              }
-              echo '<li class="filter_dropdown_tag"><a href="' . htmlentities( remove_query_arg( 'motive', $page_link ) ) . '">Keinen Filter anwenden</a></li>';
-              echo '</ul>';
-              echo '</a>';
-              echo '</div>';
-            } ;?>
+          <div class="filter_dropdown_wrapper large-4 medium-4 columns right">
+              <a href="#">
+                  <button>Filtern Sie hier nach Bildmotiv</button>
+                      <?php 
+                      if ( is_array( $motive ) ) {
+                          echo '<ul class="filter_dropdown_main large-12 medium-12 columns">';
+                          foreach ( $motive as $motive ){
+                          echo '<a href="' . htmlentities( add_query_arg( 'motive', $motive->slug, $page_link ) ) . '"><li class="filter_dropdown_tag">' . $motive->name . '</li></a>';
+                          }
+                          
+                          echo '<a href="' . htmlentities( remove_query_arg( 'motive', $page_link ) ) . '"><li class="filter_dropdown_tag">Keinen Filter anwenden</li></a>'; 
+                          }
+                          ;?>
+                    </ul>
+              </a>
+            </div>
+            
       </div>
 
   <div class="row">
