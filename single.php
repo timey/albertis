@@ -33,7 +33,7 @@
                  <?php if( $field['value'] ): ?>
           
                     <?php if($field['name'] !== 'bildbeschreibung') :?>
-                      <?php if($field['name'] !== 'bild') :?>
+                      <?php if($field['name'] !== 'technik') :?>
                          <?php if($field['name'] !== 'herkunftsnachweis') :?>
                       <tr><td><?php echo $field['label']; ?>:</td> <td><?php echo $field['value']; ?></td></tr>
                     
