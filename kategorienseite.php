@@ -20,29 +20,6 @@
 
           <?php if ( $the_query->have_posts() ) : ?>
 
-        <!-- pagination here -->
-
-<!-- OLD QUERY 
-<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
- 
-  <div class="large-4 medium-4 small-12 small-centered large-uncentered medium-uncentered columns imagefeed">
-    <a href="<?php the_permalink(); ?>">
-      <?php the_post_thumbnail('index-categories'); ?>
-
-      Contents that are only shown on HOVER
-      <div class="category_information absolute_center">
-        <h3 class="absolute_center"><?php echo $post->post_title ?></h3>
-      </div>
-                  
-    </a>
-  </div>
-
-
-  <?php endwhile; ?>
-  end of the loop -->
-
-<!-- 2. Version des Loops -->
-
       <!-- the loop -->
         <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
          
@@ -52,7 +29,7 @@
   
               <div class="overlay">
                 <h3 class=""><?php echo $post->post_title ?></h3>
-                <p>Gallerie betreten!</p>
+                <p>Galerie betreten!</p>
               </div>
                           
             </a>
@@ -60,21 +37,16 @@
 
 
           <?php endwhile; ?>
-          <!-- end of the loop -->
 
-
-<!-- ENDE 2. Version -->  
+<!-- ENDE des loops -->  
 
           <!-- pagination here -->
 
          <?php wp_reset_postdata(); ?>
 
-
-
         <?php else:  ?>
           <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
         <?php endif; ?>
-
 
         <div class="clearfix">
         </div>
