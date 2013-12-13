@@ -2,9 +2,6 @@
 /////////////////////////////////////////////////////
 //THIS SECTION CREATES NEW POST TYPES
 //Custom Post Type "Kunstwerke" and Custom User Role to administrate only Kunstwerke
-remove_role('borisch');
-remove_role('albertis-redakteur');
-remove_role('albertis');
 
 add_action('init', 'create_post_type');
 function create_post_type() {
@@ -90,9 +87,9 @@ add_action('admin_init', 'add_kunstwerk_caps_to_admin');
 
 
 //Create Custom Taxonomy "Kunstart" for Custom Post Type "Kunstwerke"
-add_action( 'init', 'create_kunstwerke_taxonomies', 0 );
+add_action( 'init', 'create_kunstarten_taxonomie', 0 );
 // create taxonomy of "Kunstart" for the post type "Kunstwerk"
-function create_kunstwerke_taxonomies() {
+function create_kunstarten_taxonomie() {
 	// Add new taxonomy, make it hierarchical (like categories)
 	$labels = array(
 		'name'              => _x( 'Kunstarten', 'taxonomy general name' ),
@@ -121,12 +118,40 @@ function create_kunstwerke_taxonomies() {
 	register_taxonomy( 'kunstart', 'albertis-kunstwerke' , $args );
 }
 
-//Remove Taxonomy-Box from BackEnd Dashboard
-function remove_custom_taxonomy_box(){
-	remove_meta_box('kunstart'.'div', 'albertis-kunstwerke', 'side');
+//Create Custom Taxonomie "Motive" für Custom Post Type "Kunstwerke"
+add_action('init', 'create_motive_taxonomie', 0);
+function create_motive_taxonomie(){
+	$labels = array(
+		'name'              => _x( 'Motive', 'taxonomy general name' ),
+		'singular_name'     => _x( 'Motiv', 'taxonomy singular name' ),
+		'search_items'      => __( '' ),
+		'all_items'         => __( 'Alle Motive' ),
+		'edit_item'         => __( 'Motiv bearbeiten' ),
+		'update_item'       => __( 'Motiv aktualisieren' ),
+		'add_new_item'      => __( 'Motiv hinzufügen' ),
+		'new_item_name'     => __( 'Bezeichnung des Motivs' ),
+		'menu_name'         => __( 'Motive' ),
+		'popular_items'      => null,
+		);
 
+	$args = array(
+		'hierarchical'      => false,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => 'motive',
+		'rewrite'           => array( 'slug' => 'motive' ),
+	);
+
+	register_taxonomy( 'motive', 'albertis-kunstwerke' , $args );
 }
-add_action('admin_menu', 'remove_custom_taxonomy_box');
+
+//Remove Taxonomy-Box from BackEnd Dashboard
+function remove_custom_taxonomy_boxes(){
+	remove_meta_box('kunstart'.'div', 'albertis-kunstwerke', 'side');
+	remove_meta_box('motive'.'div', 'albertis-kunstwerke', 'side');
+}
+add_action('admin_menu', 'remove_custom_taxonomy_boxes');
 
 ////////////////////////////////////////////////////
 //Get Post Title from custom field "bildname"
