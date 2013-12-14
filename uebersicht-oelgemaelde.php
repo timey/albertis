@@ -34,7 +34,7 @@
                   <button>Filtern Sie hier nach Bildmotiv</button>
                       <?php 
                       if ( is_array( $motive ) ) {
-                          echo '<ul class="filter_dropdown_main large-12 medium-12 columns">';
+                          echo '<div class="large-12 small-12 columns filter_dropdown_outermain"><ul class="filter_dropdown_main">';
                           foreach ( $motive as $motive ){
                           echo '<a href="' . htmlentities( add_query_arg( 'motive', $motive->slug, $page_link ) ) . '"><li class="filter_dropdown_tag">' . $motive->name . '</li></a>';
                           }
@@ -42,7 +42,7 @@
                           echo '<a href="' . htmlentities( remove_query_arg( 'motive', $page_link ) ) . '"><li class="filter_dropdown_tag">Keinen Filter anwenden</li></a>'; 
                           }
                           ;?>
-                    </ul>
+                    </ul></div>
               </a>
             </div>
             
