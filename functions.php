@@ -198,13 +198,23 @@ function wp_admin_bar_new_item(){
 }
 add_action('wp_before_admin_bar_render', 'wp_admin_bar_new_item');
 
-//Chagen Logo during Login to Albertis-Eule
-function albertis_custom_login(){
-	echo '<style type="text/css">
-	h1 a {background-image:url('.get_bloginfo('template_url').'/img/login_logo_albertis.png) !important; }
-	</style>';
-}
-add_action('login_head', 'albertis_custom_login');
+//Change Logo during Login to Albertis-Eule
+function my_login_logo() { ?>
+    <style type="text/css">
+        body.login div#login h1 a {
+            background-image: url(<?php echo get_bloginfo( 'template_directory' ) ?>/img/login_logo_albertis.png);
+            padding-bottom: 10px;
+            width: 100%;
+            -webkit-background-size: contain;
+			-moz-background-size: contain;
+			-ms-background-size: contain;
+			-o-background-size: contain;
+			background-size: contain;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
 
 //Change Logo in Admin Dashboard to Albertis Logo
 /*
