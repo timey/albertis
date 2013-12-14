@@ -2,6 +2,9 @@
 /////////////////////////////////////////////////////
 //THIS SECTION CREATES NEW POST TYPES
 //Custom Post Type "Kunstwerke" and Custom User Role to administrate only Kunstwerke
+remove_role('$albertis-redakteur');
+remove_role('borisch');
+
 
 add_action('init', 'create_post_type');
 function create_post_type() {
@@ -32,8 +35,8 @@ function create_post_type() {
 	
 }
 
-//CREATION OF CUSTOM USER ROLE 
-	add_role('albertis-redakteur', 'Albertis-Redakteur', array(
+/*CREATION OF CUSTOM USER ROLE 
+	add_role('a-redakteur', 'A-Redakteur', array(
 			'edit_kunstwerk' => true,
 			'edit_kunstwerke' => true,
 			'delete_kunstwerk'=> true,
@@ -63,7 +66,7 @@ function create_post_type() {
 			'edit_theme_options'=>true,
 	)) ;
 
-	$role = get_role('albertis-redakteur');
+	$role = get_role('a-redakteur');
 	$role->add_cap('read');
 
 function add_kunstwerk_caps_to_admin(){
@@ -84,7 +87,7 @@ function add_kunstwerk_caps_to_admin(){
 	$admin_role->add_cap('delete_published_kunstwerke');
 }
 add_action('admin_init', 'add_kunstwerk_caps_to_admin');
-
+*/
 
 //Create Custom Taxonomy "Kunstart" for Custom Post Type "Kunstwerke"
 add_action( 'init', 'create_kunstarten_taxonomie', 0 );
