@@ -35,7 +35,7 @@ function create_post_type() {
 }
 
 //CREATION OF CUSTOM USER ROLE 
-add_role('albertis-redakteur', 'Albertis-Redakteur', array(
+add_role('albertis-redakteur', 'Albertis-Redakteur2', array(
 			
 			'edit_kunstwerk' => true,
 			'edit_kunstwerke' => true,
