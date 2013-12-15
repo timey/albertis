@@ -2,9 +2,7 @@
 /////////////////////////////////////////////////////
 //THIS SECTION CREATES NEW POST TYPES
 //Custom Post Type "Kunstwerke" and Custom User Role to administrate only Kunstwerke
-remove_role('$albertis-redakteur');
-remove_role('borisch');
-
+remove_role('albertis-redakteur');
 
 add_action('init', 'create_post_type');
 function create_post_type() {
