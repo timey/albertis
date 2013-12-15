@@ -86,11 +86,20 @@
 
 
         <!-- pagination here -->
-        <?php
-        // usage with max_num_pages
-        echo get_next_posts_link( 'Older Entries', $the_query->max_num_pages );
-        echo get_previous_posts_link( 'Newer Entries' );
-        ?>
+        
+      
+            <div class="row">
+              <div class="large-4 small-8 small-centered columns">
+                <button class="small button-center">
+                <?php
+                // usage with max_num_pages
+                echo get_next_posts_link( 'weitere Kunstwerke', $the_query->max_num_pages );
+                echo get_previous_posts_link( 'vorherige Kunstwerke' );
+                ?>
+                </button>
+              </div>
+            </div>
+  
 
         <?php wp_reset_postdata(); ?>
 

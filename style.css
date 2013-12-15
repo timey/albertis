@@ -388,6 +388,23 @@ div.imagefeed a:hover > div.category_information{
 	transition: all 0.5s;
 }
 
+div button.button-center{
+	display: block;
+	margin: 0 auto;
+
+	background-color: #0FA00F;
+}
+
+div button.button-center a{
+	color: #fff;
+	font-weight: 300; 
+}
+
+div button.button-center:hover{
+	 background-color: rgb(58, 141, 58); 
+
+}
+
 /************ SINGLE.PHP - KUNSTWERK ***********/
 
 .image-container {
