@@ -11,7 +11,8 @@
 				<a href="<?php the_permalink(); ?>">
 					<h2><?php the_title(); ?></h2>
 					<div class="entry">
-						<?php the_content(); ?>
+						<?php the_post_thumbnail('index-categories'); ?>
+					<!--	<?php the_content(); ?> -->
 					</div>
 				</a>
 			<?php endwhile; ?>
