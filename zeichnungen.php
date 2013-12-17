@@ -29,7 +29,7 @@
               $page_link = add_query_arg( 'motive', $_GET['motive'], $page_link );
           } ;?>
 
-          <div class="large-4 medium-4 columns">
+          <div class="large-8 medium-8 small-12 columns">
             <h2><?php the_title() ?></h2>
           </div>
           <div class="filter_dropdown_wrapper large-4 medium-4 columns right">
