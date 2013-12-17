@@ -64,6 +64,7 @@ add_role('albertis-redakteur', 'Albertis-Redakteur', array(
 			'edit_pages'=> true,
 			'publish_pages'=> true,
 			'delete_pages'=> true,
+			'edit_others_pages'=> true,
 			'delete_others_pages'=> true,
 			'delete_published_pages'=> true,
 			'edit_published_pages'=> true,
@@ -301,28 +302,6 @@ function my_login_logo() { ?>
 <?php }
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
 
-
-//Change Logo in Admin Dashboard to Albertis Logo
-/*
-function albertis_custom_dashboard_logo(){
-	echo '<style type="text/css">
-	h1 a {background-image:url('.get_bloginfo('template_url').'/img/dashboard_logo_albertis.png) !important; }
-	</style>';
-}
-add_action('admin_head', 'albertis_custom_dashboard_logo'); */
-
-//Add LandingPage to Admin Menu
-/*
-add_action('admin_menu', 'add_landingpage_to_dashboard');
-
-function add_landingpage_to_dashboard(){
-	add_menu_page('Landingpage', 'Landingpage', 'publish_posts', 'custompage', 'call_landingpage', plugins_url('myplugin/images/icon.png'), 6);
-}
-
-function call_landingpage(){
-	echo "Hello";
-}*/
-
 ///////////////////////////////////////////////////////
 //THIS SECTION IS FOR TEMPLATING FUNCTIONS
 //Add Navigation Menu
@@ -389,7 +368,7 @@ $original_content = $content;
 add_filter( 'the_content', 'InsertFeaturedImage' );
 
 
-<<<<<<< HEAD
+
 // SAVE CUSTOM FIELD INPUT TITLE AS POST TITLE
 
 add_action('save_post', 'check_if_page');
@@ -446,7 +425,7 @@ remove_action('acf/save_post', 'change_content_2');
 add_action('acf/save_post', 'change_content_2');
 }
 
-=======
+
 /* ANTWORT AUS WP FORUM
 function meta_value_title_wpse_126764($data){
   global $_POST;
@@ -462,5 +441,5 @@ function meta_value_title_wpse_126764($data){
 }
 add_action('wp_insert_post_data','meta_value_title_wpse_126764',1);
 */
->>>>>>> 41601a6eef2cbcfd3364072b0c99fae513e9951d
+
 ?>
