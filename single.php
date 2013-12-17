@@ -35,12 +35,14 @@
                     <?php if($field['name'] !== 'bildbeschreibung') :?>
                       <?php if($field['name'] !== 'technik') :?>
                          <?php if($field['name'] !== 'herkunftsnachweis') :?>
+                          <?php if($field['name'] !== 'motive') :?>
                       <tr><td><?php echo $field['label']; ?>:</td> <td><?php echo $field['value']; ?></td></tr>
                     
                     <?php else: 
                       ;
                     ?> 
 
+                          <?php endif; ?>
                         <?php endif; ?>
                        <?php endif; ?>
                       <?php endif; ?>
