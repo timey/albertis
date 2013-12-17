@@ -368,7 +368,6 @@ $original_content = $content;
 add_filter( 'the_content', 'InsertFeaturedImage' );
 
 
-
 // SAVE CUSTOM FIELD INPUT TITLE AS POST TITLE
 
 add_action('save_post', 'check_if_page');
@@ -425,7 +424,6 @@ remove_action('acf/save_post', 'change_content_2');
 add_action('acf/save_post', 'change_content_2');
 }
 
-
 /* ANTWORT AUS WP FORUM
 function meta_value_title_wpse_126764($data){
   global $_POST;
@@ -441,5 +439,4 @@ function meta_value_title_wpse_126764($data){
 }
 add_action('wp_insert_post_data','meta_value_title_wpse_126764',1);
 */
-
 ?>
