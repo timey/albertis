@@ -81,6 +81,7 @@ add_role('albertis-redakteur', 'Albertis-Redakteur2', array(
 			'delete_others_posts' => true,
 			'edit_published_posts' => true,
 			'edit_others_posts' => true,
+			'edit_posts' => true,
 			
 	)) ; 
 
