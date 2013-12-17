@@ -328,7 +328,16 @@ add_filter( 'the_content', 'InsertFeaturedImage' );
 
 // SAVE CUSTOM FIELD INPUT TITLE AS POST TITLE
 
-add_action('save_post', 'change_title');
+add_action('save_post', 'check_if_page');
+
+function check_if_page(){
+	if('page'==get_post_type()){ 
+		; }
+	elseif ('post'==get_post_type()){ 
+		add_action('save_post', 'change_title');
+		add_action('save_post', 'change_title_2');}
+}
+
 function change_title($post_id) {
 		$post_title = get_post_meta($post_id,'bildname',true);
 		$my_post = array();
@@ -339,7 +348,7 @@ remove_action('save_post', 'change_title');
 add_action('save_post', 'change_title');
 	}
 
-add_action('acf/save_post', 'change_title_2');
+//add_action('acf/save_post', 'change_title_2');
 function change_title_2($post_id) {
 		$post_title = get_post_meta($post_id,'bildname',true);
 		$my_post = array();
@@ -372,6 +381,5 @@ remove_action('acf/save_post', 'change_content_2');
                     wp_update_post( $my_post );
 add_action('acf/save_post', 'change_content_2');
 }
-
 
 ?>
