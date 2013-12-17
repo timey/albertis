@@ -252,6 +252,40 @@ add_action('acf/save_post', 'change_content_frontend_albertis');
     } 
 }
 
+/*
+*
+** URL Rewrite for Pretty Permalinks 
+*
+*/
+function filter_post_type_link($link, $post)
+{
+    if ($post->post_type != 'albertis-kunstwerke')
+        return $link;
+
+    if ($ak_title = get_post_meta($post->ID, 'bildname', true))
+        $link = str_replace('%bildname%', array_pop($ak_title)->slug, $link);
+    return $link;
+}
+add_filter('post_type_link', 'filter_post_type_link', 10, 2);
+
+// Flush rewrite rules
+add_action( 'init','maybe_rewrite_rules' );
+function maybe_rewrite_rules() {
+
+	$ver = filemtime( __FILE__ ); // Get the file time for this file as the version number
+	$defaults = array( 'version' => 0, 'time' => time() );
+	$r = wp_parse_args( get_option( __CLASS__ . '_flush', array() ), $defaults );
+
+	if ( $r['version'] != $ver || $r['time'] + 172800 < time() ) { // Flush if ver changes or if 48hrs has passed.
+		flush_rewrite_rules();
+		// trace( 'flushed' );
+		$args = array( 'version' => $ver, 'time' => time() );
+		if ( ! update_option( __CLASS__ . '_flush', $args ) )
+			add_option( __CLASS__ . '_flush', $args );
+	}
+
+}
+
 ////////////////////////////////////////////////////
 //THIS SECTION MODIFIES ADMIN MENU AND DASHBOARD
 //Change the "Howdy, admin" to something more serious
