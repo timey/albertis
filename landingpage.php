@@ -66,13 +66,13 @@
 
   <div class="row third-container">  
     <div class="large-4 medium-4 small-12 columns">
-        <a href="<?php echo get_permalink( get_page_by_path( 'kunstwerke' ) ); ?>landingpage/kunstwerke"><button>weitere Infos</button></a>
+        <a href="<?php echo get_permalink( get_page_by_path( 'kunstwerke' ) ); ?>landingpage/kunstwerke"><div class="button small">weitere Infos</div></a>
     </div>   
     <div class="large-4 medium-4 small-12 columns">
-        <a href="<?php echo get_permalink( get_page_by_path( 'bewertung' ) ); ?>landingpage/bewertung"><button>weitere Infos</button></a>
+        <a href="<?php echo get_permalink( get_page_by_path( 'bewertung' ) ); ?>landingpage/bewertung"><div class="button small">weitere Infos</div></a>
     </div>
     <div class="large-4 medium-4 small-12 columns">
-          <a href="<?php echo get_permalink( get_page_by_path( 'bewertung' ) ); ?>landingpage/bewertung"><button>weitere Infos</button></a>
+          <a href="<?php echo get_permalink( get_page_by_path( 'bewertung' ) ); ?>landingpage/bewertung"><div class="button small">weitere Infos</div></a>
     </div>
   </div>
 
