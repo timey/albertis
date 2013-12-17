@@ -11,8 +11,11 @@ hex: #0FA00F
 
 */
 
-
 @import url("css/foundation.css");
+
+.grey{
+	background-color: grey;
+}
 
 body{
 	background: url("img/bg.jpg") no-repeat center center fixed;
@@ -21,6 +24,9 @@ body{
 	-ms-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+
+	-moz-border-image: url("img/bg.jpg") 0;
+	border-image: url("img/bg.jpg") 0;
 }
 
 a,

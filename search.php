@@ -2,8 +2,8 @@
 
 <div class="row">
  <div class="bg large-12 columns">
-
-  <div class="row first-container">
+	
+	<div class="row first-container">
       <?php if(have_posts()): ?>
 				<p class="info">Ihre Suchergebnisse f&uuml;r "<?php echo $s ?>"</p>
 
@@ -16,6 +16,8 @@
 					</div>
 				</a>
 			<?php endwhile; ?>
+
+
 				<p align="center"><?php next_posts_link('&laquo; &Auml;ltere Eintr&auml;ge') ?> | <?php previous_posts_link('Neuere Eintr&auml;ge &raquo;') ?></p>
 			
 			<?php else:  ?>
