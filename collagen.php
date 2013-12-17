@@ -14,7 +14,12 @@
         <?php
             // the query
 
-          $page_link = get_permalink();
+         $args=array();
+         $args['post_type'] = 'albertis-kunstwerke';
+         $args['posts_per_page'] = '21';
+         $args['kunstarten'] = 'collagen';
+
+         $page_link = get_permalink();
           $motive = get_terms( 'motive' );
 
           $args['paged'] = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
@@ -49,12 +54,6 @@
   <div class="row">
 
 <?php 
-  
-  $args=array();
-  $args['post_type'] = 'albertis-kunstwerke';
-  $args['posts_per_page'] = '21';
-  $args['kunstarten'] = 'collagen';
-
   $the_query = new WP_Query( $args ); ?> 
 
       <?php if ( $the_query->have_posts() ) : ?>
@@ -80,66 +79,101 @@
           </a>
 
           </div> 
+
         <?php endwhile; ?>
         <!-- end of the loop -->
 
 <!-- ENDE 2. Version -->
 
 
-        <!-- pagination here -->
-  <!-- Abfrage, ob mehr als eine Seite vorhanden - wenn ja -> Button anzeigen -->
-      <?php 
-
-      $nextposts = get_next_posts_link();
-      if( $nextposts == true ): ?>
-        
-       <div class="row">
-        <div class="large-12 columns"> 
-      
-            <div class="row">
-              <div class="large-4 small-8 small-centered columns">
-                <button class="small button-center">
-                <?php
-                // usage with max_num_pages
-                echo get_next_posts_link( 'weitere Kunstwerke', $the_query->max_num_pages );
-                echo get_previous_posts_link( 'vorherige Kunstwerke' );
-                ?>
-                </button>
-              </div>
-            </div>
-        </div>
-      </div>
-  
-      <?php endif; ?>
-  <!-- Ende Abfrage -->
-        
-      
-            <div class="row">
-              <div class="large-4 small-8 small-centered columns">
-                <button class="small button-center">
-                <?php
-                // usage with max_num_pages
-                echo get_next_posts_link( 'weitere Kunstwerke', $the_query->max_num_pages );
-                echo get_previous_posts_link( 'vorherige Kunstwerke' );
-                ?>
-                </button>
-              </div>
-            </div>
-  
-
-        <?php wp_reset_postdata(); ?>
+      <?php wp_reset_postdata(); ?>
 
       <?php else:  ?>
-        <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+        <p><?php _e( 'Sorry, leider konnten wir keine Ergebnisse finden.' ); ?></p>
       <?php endif; ?>
 
       <div class="clearfix">
       </div>
     </div>
+
+<!-- pagination here -->
+    <?php 
+
+      $nextposts = get_next_posts_link('weitere Kunstwerke', $the_query->max_num_pages);
+      $prevposts = get_previous_posts_link('vorherige Kunstwerke');
+      if( $nextposts == true && $prevposts == true ): ?>
+      <div class="row">
+        <div class="large-6 large-centered medium-6 small-12 small-centered columns"> 
+      
+            <div class="row">
+              <div class="large-6 large-uncentered medium-6 small-12 columns">
+                <div class="button small button-center">
+                <?php
+                // usage with max_num_pages
+                echo $prevposts;
+                ?>
+                </div>
+              </div>
+              <div class="large-6 large-uncentered medium-6 small-12 columns">
+                <div class="button small button-center">
+                <?php
+                // usage with max_num_pages
+                echo $nextposts;
+                ?>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+
+      <?php elseif( $nextposts == true ): ?>
+        
+       <div class="row">
+        <div class="large-12 columns"> 
+      
+            <div class="row">
+              <div class="large-3 medium-4 small-10 small-centered columns">
+                <div class="button small button-center">
+                <?php
+                // usage with max_num_pages
+                echo $nextposts;
+                //echo get_previous_posts_link( 'vorherige Kunstwerke' );
+                ?>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <?php elseif ($prevposts == true): ?>
+      <div class="row">
+        <div class="large-12 columns"> 
+      
+            <div class="row">
+              <div class="large-3 medium-4 small-10 small-centered columns">
+                <div class="button small button-center">
+                <?php
+                // usage with max_num_pages
+                echo $prevposts;
+                ?>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <?php else: ?>
+        
+    <?php endif; ?>
+
+  <!-- end of the pagination -->
+
+
+
   </div>
-  </div>
+
+</div>
 
     
 <?php get_footer(); ?>
- 
-
