@@ -93,24 +93,52 @@ footer div.impressum {
 	background: rgba(244,244,244,0.95);
 	padding: 1.5em 1.5em 1.5em 1.5em;
 
-	-webkit-box-shadow: 0px 7px 30px 0px rgba(0,0,0,0.5);
-	-moz-box-shadow: 0px 7px 30px 0px rgba(0,0,0,0.5);
-	box-shadow: 0px 7px 30px 0px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.5);
+	box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.5);
+}
+
+.topnav_wrapper{
+
+	-webkit-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.5);
+	box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.5);
+
 }
 
 .topnav{
 	padding: 0;
+	
 }
 
 .topnav div div form {
+	background: rgba(244,244,244,0.95);
+
 	float: right;
 	display: inline-block;
+
+	-webkit-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.5);
+	box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.5);
 }
 
 .topnav div div form input{
-	background: rgba(244,244,244,0.9);
+	border: none;
+	background: rgba(244,244,244,0.95);
 	height: 2.4rem;
 
+}
+
+.topnav form,
+.topnav form input {
+	color:#0FA00F;
+	margin: 0;
+}
+
+.topnav form input:focus {
+	background-color:rgba(244,244,244,0.95);
+	color:#000;
+	margin: 0;
 }
 
 
@@ -123,7 +151,8 @@ footer div.impressum {
 .menu li {
 	float: left;
 	border-right: 1px solid;
-	border-color: rgba(255, 255, 255, 0.5)
+	border-color: rgba(255, 255, 255, 0.5);
+	padding: 0.1rem 1rem;
 	}
 
 .menu li:last-child{
@@ -132,18 +161,17 @@ footer div.impressum {
 
 .menu li a {
 	font-size: 0.9rem;
-	padding: 0.1rem 1rem;
+	
 	color: black;
 	line-height: normal;
 }
 
-menu ul li a:hover {
-	border-bottom: 2px solid #008cba;
+ul.menu li:hover{
+	background-color: rgba(244, 244, 244, 0.9);
 }
 
-.topnav form,
-.topnav form input {
-	margin: 0;
+ul.menu li a:hover {
+	border-bottom: 2px solid #0FA00F;
 }
 
 .imagefeed {
