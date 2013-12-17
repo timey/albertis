@@ -1,4 +1,4 @@
-<?php /*Template Name: Ölgemälde */ ?>
+<?php /*Template Name: Aquarelle */ ?>
 
 <?php get_header(); ?>
  
@@ -14,12 +14,7 @@
         <?php
             // the query
 
-         $args=array();
-         $args['post_type'] = 'albertis-kunstwerke';
-         $args['posts_per_page'] = '21';
-         $args['kunstarten'] = 'oelgemaelde';
-
-         $page_link = get_permalink();
+          $page_link = get_permalink();
           $motive = get_terms( 'motive' );
 
           $args['paged'] = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
@@ -54,6 +49,12 @@
   <div class="row">
 
 <?php 
+  
+  $args=array();
+  $args['post_type'] = 'albertis-kunstwerke';
+  $args['posts_per_page'] = '21';
+  $args['kunstarten'] = 'aquarelle';
+
   $the_query = new WP_Query( $args ); ?> 
 
       <?php if ( $the_query->have_posts() ) : ?>
