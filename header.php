@@ -4,6 +4,7 @@
 
     <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
     <title><?php wp_title(); ?> - <?php bloginfo('name'); ?></title>
+    <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri()?>/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri()?>/css/normalize.css" type="text/css" media="screen" title="alternate" />
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,7 +23,7 @@
       <div class="row">
          
           <div class="large-9 medium-10 small-12 columns">
-            <?php wp_nav_menu(array('container_class' => 'button-group right','theme_location'=>'header-menu')); ?>
+            <?php wp_nav_menu(array('container_class' => 'button-group right topnav_wrapper','theme_location'=>'header-menu')); ?>
           </div>
 
            <div class="large-3 medium-2 small-12 columns">

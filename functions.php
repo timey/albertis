@@ -14,7 +14,11 @@ function create_post_type() {
 			'name' => __('Kunstwerke'),
 			'singular_name' => __('Kunstwerk')),
 		'public'=> true,
+		'exclude_from_search'=>false,
+		'publicly_queryable' =>true,
+		'query_var' => true,
 		'has_archive'=>true,
+		'menu_position'=> 5,
 		'rewrite'=>array('slug' => 'kunstwerke'),
 	/*	'taxonomies' => array('category'), */
 		'supports' => array(/*'title','categorys',*/'thumbnail'),
