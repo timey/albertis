@@ -13,6 +13,10 @@
   
         <?php
             // the query
+          $args=array();
+          $args['post_type'] = 'albertis-kunstwerke';
+          $args['posts_per_page'] = '21';
+          $args['kunstarten'] = 'oelgemaelde';
 
           $page_link = get_permalink();
           $motive = get_terms( 'motive' );
@@ -49,11 +53,6 @@
   <div class="row">
 
 <?php 
-  
-  $args=array();
-  $args['post_type'] = 'albertis-kunstwerke';
-  $args['posts_per_page'] = '21';
-  $args['kunstarten'] = 'oelgemaelde';
 
   $the_query = new WP_Query( $args ); ?> 
 
