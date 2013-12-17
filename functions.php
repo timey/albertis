@@ -33,6 +33,10 @@ function create_post_type() {
 			'read_kunstwerke' => 'read_kunstwerke',
 			'edit_published_post' => 'edit_published_kunstwerk',
 			'edit_others_posts' => 'edit_others_kunstwerke',
+			'delete_post' => 'delete_kunstwerk',
+			'delete_posts' => 'delete_kunstwerke',
+			'delete_others_post' => 'delete_others_kunstwerk',
+			'delete_others_posts' => 'delete_others_kunstwerke',
 			)
 	));
 	
@@ -55,6 +59,8 @@ add_role('albertis-redakteur', 'Albertis-Redakteur2', array(
 			'edit_published_kunstwerke'=> true,
 			'delete_published_kunstwerk'=> true,
 			'delete_published_kunstwerke'=> true,
+			'delete_others_kunstwerk' => true,
+			'delete_others_kunstwerke' => true,
 			'edit_pages'=> true,
 			'publish_pages'=> true,
 			'delete_pages'=> true,
@@ -97,6 +103,8 @@ function add_kunstwerk_caps_to_admin(){
 	$admin_role->add_cap('edit_published_kunstwerke');
 	$admin_role->add_cap('delete_published_kunstwerk');
 	$admin_role->add_cap('delete_published_kunstwerke');
+	$admin_role->add_cap('delete_others_kunstwerke');
+	$admin_role->add_cap('delete_others_kunstwerk');
 }
 add_action('admin_init', 'add_kunstwerk_caps_to_admin'); 
 
