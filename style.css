@@ -13,10 +13,6 @@ hex: #0FA00F
 
 @import url("css/foundation.css");
 
-.grey{
-	background-color: grey;
-}
-
 body{
 	background: url("img/bg.jpg") no-repeat center center fixed;
 	-webkit-background-size: cover;
@@ -24,9 +20,6 @@ body{
 	-ms-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-
-	-moz-border-image: url("img/bg.jpg") 0;
-	border-image: url("img/bg.jpg") 0;
 }
 
 a,
@@ -205,7 +198,7 @@ ul.menu li a:hover {
 
 /* ****** LANDINGPAGE ******* */
 
-div.third-container a button {
+div.third-container a div {
 	background-color: #0FA00F;
 	color: #fff;
 
@@ -213,7 +206,7 @@ div.third-container a button {
 	margin: 0 auto;
 }
 
-div.third-container a button:hover {
+div.third-container a div:hover {
 	background-color: rgb(58,141,58);
 }
 
@@ -474,19 +467,21 @@ div.imagefeed a:hover > div.category_information{
 	transition: all 0.5s;
 }
 
-div button.button-center{
+div div.button-center{
 	display: block;
 	margin: 0 auto;
 
 	background-color: #0FA00F;
+	width: 100%;
+	margin-bottom: 0.3rem;
 }
 
-div button.button-center a{
+div div.button-center a{
 	color: #fff;
 	font-weight: 300; 
 }
 
-div button.button-center:hover{
+div div.button-center:hover{
 	 background-color: rgb(58, 141, 58); 
 
 }
@@ -514,6 +509,37 @@ div.imagedata-container .wpcf7 p {
 div.imagedata-container table td {
 	width: 13rem;
 }
+
+/************ SEARCH.PHP - ERGEBNISSEITE ***********/
+
+div.search-result {
+	background-color: rgba(255, 255, 255, 0.54);
+	margin: 0 0 0.3rem 0;
+	padding: 1rem;
+}
+div.search-result .search-info{
+	padding: 0.5rem 0 0 2rem;
+}
+
+div.search-result h4{
+	color: #000;
+	font-size: 1.1rem;
+	line-height: 1.3rem;
+}
+
+div.search-result h4.first{
+	font-weight: 400;
+}
+
+div.search-result  h3{
+	font-weight: 400;
+	line-height: 3rem;
+}
+
+div.search-result a:hover h3{
+	text-decoration: underline;
+}
+
 
 /* **** viewport min 40.063em until max **** */
 
