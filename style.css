@@ -104,11 +104,21 @@ footer div.impressum {
 	-moz-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.5);
 	box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.5);
 
+	-webkit-box-shadow: 0px 7px 30px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 7px 30px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 7px 30px 0px rgba(0,0,0,0.2);
+
 }
 
 .topnav{
 	padding: 0;
 	
+}
+
+.topnav div div div.button-group{
+	-webkit-box-shadow: 0px 7px 30px 0px rgba(0, 0, 0, 0.2); 
+	-moz-box-shadow: 0px 7px 30px 0px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 7px 30px 0px rgba(0, 0, 0, 0.2);
 }
 
 .topnav div div form {
@@ -120,13 +130,17 @@ footer div.impressum {
 	-webkit-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.5);
 	-moz-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.5);
 	box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.5);
+
+	-webkit-box-shadow: 0px 7px 30px 0px rgba(0, 0, 0, 0.2); 
+	-moz-box-shadow: 0px 7px 30px 0px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 7px 30px 0px rgba(0, 0, 0, 0.2);
+
 }
 
 .topnav div div form input{
 	border: none;
 	background: rgba(244,244,244,0.95);
 	height: 2.4rem;
-
 }
 
 .topnav form,
@@ -205,15 +219,29 @@ a:hover .info{
 	opacity: 1;
 	visibility: visible;
 
-		/*Transition HOVER-ON*/
-		-webkit-transition: all 0.3s ease-in-out 0.2s, 
-						height 0.3s ease-in-out;
+	/*Transition HOVER-ON*/
+	-webkit-transition: all 0.3s ease-in-out 0.2s;
+	-moz-transition: all 0.3s ease-in-out 0.2s;
+	-ms-transition: all 0.3s ease-in-out 0.2s;
+	-o-transition: all 0.3s ease-in-out 0.2s;
+	transition: all 0.3s ease-in-out 0.2s;
+
+	-webkit-transition: height 0.3s ease-in-out;
+	-moz-transition: height 0.3s ease-in-out;
+	-ms-transition: height 0.3s ease-in-out;
+	-o-transition: height 0.3s ease-in-out;
+	transition: height 0.3s ease-in-out;
 } 
 
 a:hover .info h3, a:hover .info h4{
 	opacity: 1;
-		/*Transition HOVER-ON*/
-		-webkit-transition: opacity 0.3s ease-in-out 0.2s, 
+	
+	/*Transition HOVER-ON*/
+	-webkit-transition: opacity 0.3s ease-in-out 0.2s;
+	-moz-transition: opacity 0.3s ease-in-out 0.2s;
+	-ms-transition: opacity 0.3s ease-in-out 0.2s;
+	-o-transition: opacity 0.3s ease-in-out 0.2s;
+	transition: opacity 0.3s ease-in-out 0.2s;
 }
 
 .info { 
@@ -228,9 +256,20 @@ a:hover .info h3, a:hover .info h4{
 
 	visibility: hidden;
 	opacity: 0.3;
-		/*Transition HOVER-OFF*/
-		-webkit-transition: all 0.4s ease-in-out,
-						height 0.4s ease-in-out;
+
+	/*Transition HOVER-OFF*/
+
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+
+	-webkit-transition: height 0.4s ease-in-out;
+	-moz-transition: height 0.4s ease-in-out;
+	-ms-transition: height 0.4s ease-in-out;
+	-o-transition: height 0.4s ease-in-out;
+	transition: height 0.4s ease-in-out;
 }
 
 div.info h3 {
@@ -347,7 +386,16 @@ div.filter_dropdown_wrapper ul li:hover{
 	height: 25%;
 
 	-webkit-transition: height 0.4s ease-in-out;
-	-webkit-transition: all 0.4s ease-in-out,;
+	-moz-transition: height 0.4s ease-in-out;
+	-ms-transition: height 0.4s ease-in-out;
+	-o-transition: height 0.4s ease-in-out;
+	transition: height 0.4s ease-in-out;
+	
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
 }
 
 div.overlay h3 {
@@ -368,6 +416,10 @@ div.overlay p {
 	visibility: hidden;
 
 	-webkit-transition: opacity 0.3s ease-in-out 0.2s;
+	-moz-transition: opacity 0.3s ease-in-out 0.2s;
+	-ms-transition: opacity 0.3s ease-in-out 0.2s;
+	-o-transition: opacity 0.3s ease-in-out 0.2s;
+	transition: opacity 0.3s ease-in-out 0.2s;
 }
 
 /* ****** Box with Data for the specific Category ******* */
@@ -414,6 +466,23 @@ div.imagefeed a:hover > div.category_information{
 	-ms-transition: all 0.5s;
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
+}
+
+div button.button-center{
+	display: block;
+	margin: 0 auto;
+
+	background-color: #0FA00F;
+}
+
+div button.button-center a{
+	color: #fff;
+	font-weight: 300; 
+}
+
+div button.button-center:hover{
+	 background-color: rgb(58, 141, 58); 
+
 }
 
 /************ SINGLE.PHP - KUNSTWERK ***********/
