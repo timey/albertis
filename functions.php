@@ -316,4 +316,53 @@ $original_content = $content;
 
 add_filter( 'the_content', 'InsertFeaturedImage' );
 
+
+// SAVE CUSTOM FIELD INPUT TITLE AS POST TITLE
+
+add_action('save_post', 'change_title');
+function change_title($post_id) {
+		$post_title = get_post_meta($post_id,'bildname',true);
+		$my_post = array();
+                $my_post['ID'] = $post_id;
+                $my_post['post_title'] = $post_title;
+remove_action('save_post', 'change_title');
+                    wp_update_post( $my_post );
+add_action('save_post', 'change_title');
+	}
+
+add_action('acf/save_post', 'change_title_2');
+function change_title_2($post_id) {
+		$post_title = get_post_meta($post_id,'bildname',true);
+		$my_post = array();
+                $my_post['ID'] = $post_id;
+                $my_post['post_title'] = $post_title;
+remove_action('acf/save_post', 'change_title_2');
+                    wp_update_post( $my_post );
+add_action('acf/save_post', 'change_title_2');
+}
+
+// SAVE CUSTOM FIELD INPUT CONTENT AS POST CONTENT
+add_action('save_post', 'change_content');
+function change_content($post_id) {
+		$post_content = get_post_meta($post_id,'bildbeschreibung',true);
+		$my_post = array();
+                $my_post['ID'] = $post_id;
+                $my_post['post_content'] = $post_content;
+remove_action('save_post', 'change_content');
+                    wp_update_post( $my_post );
+add_action('save_post', 'change_content');
+}
+
+add_action('acf/save_post', 'change_content_2');
+function change_content_2($post_id) {
+		$post_content = get_post_meta($post_id,'bildbeschreibung',true);
+		$my_post = array();
+                $my_post['ID'] = $post_id;
+                $my_post['post_content'] = $post_content;
+remove_action('acf/save_post', 'change_content_2');
+                    wp_update_post( $my_post );
+add_action('acf/save_post', 'change_content_2');
+}
+
+
 ?>
