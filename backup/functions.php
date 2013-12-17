@@ -176,80 +176,17 @@ function remove_custom_taxonomy_boxes(){
 add_action('admin_menu', 'remove_custom_taxonomy_boxes');
 
 ////////////////////////////////////////////////////
+//Get Post Title from custom field "bildname"
 /*
-*** function is getting the meta_field "bildname" as post title
-**
-*/
-//Save ACF field as post_content for back-end
-add_action('save_post', 'change_title_albertis');
-function change_title_albertis($post_id) {
-	global $_POST;
-	if('albertis-kunstwerke'== get_post_type())
+add_filter('the_title', 'post_title_equals_bildname', 10, 2);
+function post_title_equals_bildname($title, $post_id)
 	{
-        $post_custom_title = get_post_meta($post_id,'bildname',true);
-        $my_post = array();
-                $my_post['ID'] = $post_id;
-                $my_post['post_title'] = $post_custom_title;
-remove_action('save_post', 'change_title_albertis');
-                    wp_update_post( $my_post );
-add_action('save_post', 'change_title_albertis');
+		if($new_title=get_post_meta($post_id, 'bildname', true)) {
+			return $new_title;
+		}
+		return $title;
 	}
-   }
-
-//Save ACF field as post_content for front-end
-add_action('acf/save_post', 'change_title_frontend_albertis');
-
-function change_title_frontend_albertis($post_id) {
-	global $_POST;
-	if('albertis-kunstwerke'== get_post_type())
-	{
-        $post_custom_title = get_post_meta($post_id,'bildname',true);
-        $my_post = array();
-                $my_post['ID'] = $post_id;
-                $my_post['post_title'] = $post_custom_title;
-remove_action('acf/save_post', 'change_title_frontend_albertis');
-                    wp_update_post( $my_post );
-add_action('acf/save_post', 'change_title_frontend_albertis');
-    } 
-}
-
-////////////////////////////////////////////////////
-/*
-*** function is getting the meta_field "bildbeschreibung" as post content
-**
 */
-//Save ACF field as post_content for back-end
-add_action('save_post', 'change_content_albertis');
-function change_content_albertis($post_id) {
-	global $_POST;
-	if('albertis-kunstwerke'== get_post_type())
-	{
-        $post_custom_content = get_post_meta($post_id,'bildbeschreibung',true);
-        $my_post = array();
-                $my_post['ID'] = $post_id;
-                $my_post['post_content'] = $post_custom_content;
-remove_action('save_post', 'change_content_albertis');
-                    wp_update_post( $my_post );
-add_action('save_post', 'change_content_albertis');
-	}
-   }
-
-//Save ACF field as post_content for front-end
-add_action('acf/save_post', 'change_content_frontend_albertis');
-
-function change_content_frontend_albertis($post_id) {
-	global $_POST;
-	if('albertis-kunstwerke'== get_post_type())
-	{
-        $post_custom_content = get_post_meta($post_id,'bildbeschreibung',true);
-        $my_post = array();
-                $my_post['ID'] = $post_id;
-                $my_post['post_content'] = $post_custom_content;
-remove_action('acf/save_post', 'change_content_frontend_albertis');
-                    wp_update_post( $my_post );
-add_action('acf/save_post', 'change_content_frontend_albertis');
-    } 
-}
 
 ////////////////////////////////////////////////////
 //THIS SECTION MODIFIES ADMIN MENU AND DASHBOARD
@@ -388,6 +325,129 @@ $original_content = $content;
 
 add_filter( 'the_content', 'InsertFeaturedImage' );
 
+
+// SAVE CUSTOM FIELD INPUT TITLE AS POST TITLE
+/*
+add_action('init', 'replace_title_logic');
+
+function replace_title_logic() {
+  add_filter('wp_insert_post_data', 'replace_title_before_update', 20, 2);
+  add_action('wp_insert_post', 'replace_title_after_save', 20, 2);
+  add_filter('wp_insert_post_empty_content', 'allow_empty_content_for_kunstwerke', 20 , 2);      
+}
+
+function replace_title_before_update( $data, $postarr ) {
+  if ( is_int($postarr['ID']) && ($data['post_type'] == 'albertis-kunstwerke') ) {
+    $custom = get_post_meta($postarr['ID'], 'bildname', true );
+    if ( $custom && ( $custom != $data['post_title'] ) ) $data['post_title'] = $custom;
+  }
+  return $data;
+}
+
+function replace_title_after_save( $post_ID, $post ) {
+  if ( $post->post_type != 'albertis-kunstwerke' )  return;
+  $custom = get_post_meta($post_ID, 'bildname', true );
+  if ( $custom && ( $custom != $post->post_title ) && $post->post_status != 'trash') {
+    remove_action('wp_insert_post', 'replace_title_after_save', 20, 2);
+    remove_filter('wp_insert_post_data', 'replace_title_before_update', 20, 2);
+    $postarr = ( array('ID' => $post_ID, 'post_title' => $custom) );
+    wp_insert_post($postarr);
+  }
+}
+
+function allow_empty_content_for_kunstwerke( $maybe_empty, $postarr ) {
+  if ( $postarr['post_type'] == 'albertis-kunstwerke' ) return false;
+}
+ */
+
+/**
+ * gets the current post type in the WordPress Admin
+ */
+
+/*
+function get_current_post_type() {
+  global $post, $typenow, $current_screen;
+	
+  //we have a post so we can just get the post type from that
+  if ( $post && $post->post_type )
+    return $post->post_type;
+    
+  //check the global $typenow - set in admin.php
+  elseif( $typenow )
+    return $typenow;
+    
+  //check the global $current_screen object - set in sceen.php
+  elseif( $current_screen && $current_screen->post_type )
+    return $current_screen->post_type;
+  
+  //lastly check the post_type querystring
+  elseif( isset( $_REQUEST['post_type'] ) )
+    return sanitize_key( $_REQUEST['post_type'] );
+	
+  //we do not know the post type!
+  return null;
+}
+
+add_action('save_post', 'change_title');
+function change_title($post_id) {
+		if(get_current_post_type()=='post'){
+			$post_title = get_post_meta($post_id,'bildname',true);
+			$my_post = array();
+                $my_post['ID'] = $post_id;
+                $my_post['post_title'] = $post_title;
+		remove_action('save_post', 'change_title');
+                    wp_update_post( $my_post );
+		add_action('save_post', 'change_title');
+		}
+		else ;
+	}
+
+// SAVE CUSTOM FIELD INPUT CONTENT AS POST CONTENT
+add_action('save_post', 'change_content');
+function change_content($post_id) {
+		$post_content = get_post_meta($post_id,'bildbeschreibung',true);
+		$my_post = array();
+                $my_post['ID'] = $post_id;
+                $my_post['post_content'] = $post_content;
+remove_action('save_post', 'change_content');
+                    wp_update_post( $my_post );
+add_action('save_post', 'change_content');
+}
+*/
+
+//Save ACF field as post_content for back-end
+add_action('save_post', 'change_title_albertis');
+
+function change_title_albertis($post_id) {
+	global $_POST;
+	if('albertis-kunstwerke'== get_post_type())
+	{
+        $post_custom_title = get_post_meta($post_id,'bildname',true);
+        $my_post = array();
+                $my_post['ID'] = $post_id;
+                $my_post['post_title'] = $post_custom_title;
+remove_action('save_post', 'change_title_albertis');
+                    wp_update_post( $my_post );
+add_action('save_post', 'change_title_albertis');
+	}
+   }
+
+//Save ACF field as post_content for front-end
+add_action('acf/save_post', 'change_title_frontend_albertis');
+
+function change_title_frontend_albertis($post_id) {
+	global $_POST;
+	if('albertis-kunstwerke'== get_post_type())
+	{
+        $post_custom_title = get_post_meta($post_id,'bildname',true);
+        $my_post = array();
+                $my_post['ID'] = $post_id;
+                $my_post['post_title'] = $post_custom_title;
+remove_action('acf/save_post', 'change_title_frontend_albertis');
+                    wp_update_post( $my_post );
+add_action('acf/save_post', 'change_title_frontend_albertis');
+    } 
+}
 
 /* ANTWORT AUS WP FORUM
 function meta_value_title_wpse_126764($data){
