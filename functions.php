@@ -1,6 +1,8 @@
 <?php
-/////////////////////////////////////////////////////
-//THIS SECTION CREATES NEW POST TYPES
+/*
+**
+**THIS SECTION CREATES NEW POST TYPES
+*/
 //Custom Post Type "Kunstwerke" and Custom User Role to administrate only Kunstwerke
 remove_role('albertis-redakteur');
 remove_role('a-redakteur');
@@ -170,14 +172,19 @@ function create_motive_taxonomie(){
 }
 
 //Remove Taxonomy-Box from BackEnd Dashboard
-function remove_custom_taxonomy_boxes(){
+function remove_kunstart_taxonomy_boxes(){
 	remove_meta_box('kunstart'.'div', 'albertis-kunstwerke', 'side');
+}
+add_action('admin_menu', 'remove_kunstart_taxonomy_boxes');
+
+function remove_motive_taxonomy_boxes(){
 	remove_meta_box('motive'.'div', 'albertis-kunstwerke', 'side');
 }
-add_action('admin_menu', 'remove_custom_taxonomy_boxes');
+add_action('add_meta_boxes', 'remove_motive_taxonomy_boxes');
 
-////////////////////////////////////////////////////
+
 /*
+**
 *** function is getting the meta_field "bildname" as post title
 **
 */
@@ -253,10 +260,10 @@ add_action('acf/save_post', 'change_content_frontend_albertis');
 }
 
 /*
-*
+**
 ** URL Rewrite for Pretty Permalinks 
-*
-*/
+** Not working yet
+
 function filter_post_type_link($link, $post)
 {
     if ($post->post_type != 'albertis-kunstwerke')
@@ -283,11 +290,14 @@ function maybe_rewrite_rules() {
 		if ( ! update_option( __CLASS__ . '_flush', $args ) )
 			add_option( __CLASS__ . '_flush', $args );
 	}
-
 }
+*/
 
-////////////////////////////////////////////////////
-//THIS SECTION MODIFIES ADMIN MENU AND DASHBOARD
+/*
+**
+**
+**THIS SECTION MODIFIES ADMIN MENU AND DASHBOARD
+*/
 //Change the "Howdy, admin" to something more serious
 function replace_howdy($wp_admin_bar){
 	$my_account=$wp_admin_bar->get_node('my-account');
@@ -319,7 +329,10 @@ function wp_admin_bar_new_item(){
 }
 add_action('wp_before_admin_bar_render', 'wp_admin_bar_new_item');
 
-//Change Logo during Login to Albertis-Eule
+/*
+/**
+/**Change Logo during Login to Albertis-Eule
+*/
 function my_login_logo() { ?>
     <style type="text/css">
         body.login div#login h1 a {
