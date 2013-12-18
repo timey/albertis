@@ -529,6 +529,9 @@ div.wpcf7 div.wpcf7-validation-errors{
 	color:#fff;
 }
 
+/************ PAGE.PHP - SEITE ***********/
+
+
 /************ SEARCH.PHP - ERGEBNISSEITE ***********/
 
 div.search-result {
@@ -614,6 +617,7 @@ div.third-container a div {
 		margin-bottom: 1rem !important;
 		padding: 2rem 2rem;
 	}
+
 }
 
 
