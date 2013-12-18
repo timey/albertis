@@ -7,11 +7,9 @@ get_header(); ?>
 	<div class="row">
 	 <div class="bg large-12 columns">
 		<div class="row first-container">
-			<h1><?php _e( 'Not Found :-(', 'albertis' ); ?></h1>
+			<h2><?php _e( '404 - Not Found :-(', 'albertis' ); ?></h2>
 
-			<h2><?php _e( "Ooops! Seem's like something went wrong!", 'albertis' ); ?></h2>
-					
-			<p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'albertis' ); ?></p>
+			<p><?php _e( "Huch?! Da scheint was schief gegangen zu sein - versuchs doch mal mit der Suche!", 'albertis' ); ?></ü>
 
 			<?php get_search_form(); ?>
 
