@@ -72,7 +72,7 @@
         <a href="<?php echo get_permalink( get_page_by_path( 'bewertung' ) ); ?>landingpage/bewertung"><div class="button small">weitere Infos</div></a>
     </div>
     <div class="large-4 medium-4 small-12 columns">
-          <a href="<?php echo get_permalink( get_page_by_path( 'bewertung' ) ); ?>landingpage/bewertung"><div class="button small">weitere Infos</div></a>
+          <a href="<?php echo get_permalink( get_page_by_path( 'restaurierung' ) ); ?>landingpage/restaurierung"><div class="button small">weitere Infos</div></a>
     </div>
   </div>
 
