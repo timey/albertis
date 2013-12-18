@@ -4,8 +4,6 @@
 **THIS SECTION CREATES NEW POST TYPES
 */
 //Custom Post Type "Kunstwerke" and Custom User Role to administrate only Kunstwerke
-remove_role('albertis-redakteur');
-remove_role('a-redakteur');
 
 add_action('init', 'create_post_type');
 function create_post_type() {
@@ -188,7 +186,7 @@ add_action('add_meta_boxes', 'remove_motive_taxonomy_boxes');
 *** function is getting the meta_field "bildname" as post title
 **
 */
-//Save ACF field as post_content for back-end
+//Save ACF field as post_title for back-end
 add_action('save_post', 'change_title_albertis');
 function change_title_albertis($post_id) {
 	global $_POST;
@@ -204,7 +202,7 @@ add_action('save_post', 'change_title_albertis');
 	}
    }
 
-//Save ACF field as post_content for front-end
+//Save ACF field as post_title for front-end
 add_action('acf/save_post', 'change_title_frontend_albertis');
 
 function change_title_frontend_albertis($post_id) {
@@ -236,9 +234,12 @@ function change_content_albertis($post_id) {
         $my_post = array();
                 $my_post['ID'] = $post_id;
                 $my_post['post_content'] = $post_custom_content;
-remove_action('save_post', 'change_content_albertis');
+	remove_action('save_post', 'change_content_albertis');
                     wp_update_post( $my_post );
-add_action('save_post', 'change_content_albertis');
+	add_action('save_post', 'change_content_albertis');
+	}
+	elseif('page'==get_post_type()){
+		;
 	}
    }
 
@@ -257,6 +258,9 @@ remove_action('acf/save_post', 'change_content_frontend_albertis');
                     wp_update_post( $my_post );
 add_action('acf/save_post', 'change_content_frontend_albertis');
     } 
+    elseif('page'==get_post_type()){
+		;
+	}
 }
 
 /*
@@ -413,77 +417,4 @@ $original_content = $content;
 }
 
 add_filter( 'the_content', 'InsertFeaturedImage' );
-
-
-// SAVE CUSTOM FIELD INPUT TITLE AS POST TITLE
-
-add_action('save_post', 'check_if_page');
-
-function check_if_page(){
-	if('page'==get_post_type()){ 
-		; }
-	elseif ('post'==get_post_type()){ 
-		add_action('save_post', 'change_title');
-		add_action('save_post', 'change_title_2');}
-}
-
-function change_title($post_id) {
-		$post_title = get_post_meta($post_id,'bildname',true);
-		$my_post = array();
-                $my_post['ID'] = $post_id;
-                $my_post['post_title'] = $post_title;
-remove_action('save_post', 'change_title');
-                    wp_update_post( $my_post );
-add_action('save_post', 'change_title');
-	}
-
-//add_action('acf/save_post', 'change_title_2');
-function change_title_2($post_id) {
-		$post_title = get_post_meta($post_id,'bildname',true);
-		$my_post = array();
-                $my_post['ID'] = $post_id;
-                $my_post['post_title'] = $post_title;
-remove_action('acf/save_post', 'change_title_2');
-                    wp_update_post( $my_post );
-add_action('acf/save_post', 'change_title_2');
-}
-
-// SAVE CUSTOM FIELD INPUT CONTENT AS POST CONTENT
-add_action('save_post', 'change_content');
-function change_content($post_id) {
-		$post_content = get_post_meta($post_id,'bildbeschreibung',true);
-		$my_post = array();
-                $my_post['ID'] = $post_id;
-                $my_post['post_content'] = $post_content;
-remove_action('save_post', 'change_content');
-                    wp_update_post( $my_post );
-add_action('save_post', 'change_content');
-}
-
-add_action('acf/save_post', 'change_content_2');
-function change_content_2($post_id) {
-		$post_content = get_post_meta($post_id,'bildbeschreibung',true);
-		$my_post = array();
-                $my_post['ID'] = $post_id;
-                $my_post['post_content'] = $post_content;
-remove_action('acf/save_post', 'change_content_2');
-                    wp_update_post( $my_post );
-add_action('acf/save_post', 'change_content_2');
-}
-
-/* ANTWORT AUS WP FORUM
-function meta_value_title_wpse_126764($data){
-  global $_POST;
-  if ('albertis-kunstwerke' == get_post_type() && !empty($_POST['meta'])) {
-    foreach ($_POST['meta'] as $v) {
-      if ('bildname' == $v['key']) {
-        $data['post_title'] = wp_kses( $v['value'] ); // The custom content
-      }
-    }
-  }
-//   var_dump($_POST,$data); die; // debugging
-  return $data; 
-}
-add_action('wp_insert_post_data','meta_value_title_wpse_126764',1);
-*/
 ?>
