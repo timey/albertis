@@ -204,6 +204,7 @@ div.third-container a div {
 
 	display: block;
 	margin: 0 auto;
+	width: 10rem;
 }
 
 div.third-container a div:hover {
@@ -538,6 +539,13 @@ div.search-result  h3{
 
 div.search-result a:hover h3{
 	text-decoration: underline;
+}
+
+/* **** viewport max 40.063em **** */
+
+@media only screen and (max-width: 40.063em) {
+div.third-container a div {
+	display: none;
 }
 
 
